@@ -1,0 +1,196 @@
+.hero {
+  padding-top: 140px;
+  padding-bottom: var(--space-5xl);
+  background: linear-gradient(to bottom, var(--color-surface-alt), var(--color-bg));
+}
+
+.heroContent {
+  max-width: 720px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-lg);
+}
+
+.heroTitle {
+  font-size: clamp(var(--font-size-2xl), 5vw, var(--font-size-3xl));
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: var(--letter-spacing-tight);
+  margin-bottom: var(--space-xl);
+  line-height: 1.1;
+}
+
+.accent {
+  color: var(--color-accent);
+}
+
+.heroSubtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  max-width: 600px;
+}
+
+.section {
+  padding: var(--space-5xl) 0;
+}
+
+.sectionAlt {
+  background-color: var(--color-surface-alt);
+}
+
+.missionLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5xl);
+  align-items: start;
+}
+
+.missionBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.missionBody p {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+.principlesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-3xl);
+}
+
+.principle {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.principleNumber {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: var(--color-accent);
+  opacity: 0.3;
+  line-height: 1;
+}
+
+.principleTitle {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.principleDescription {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.methodologyList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: var(--space-3xl);
+}
+
+.methodStep {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--space-2xl);
+  padding: var(--space-2xl) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.methodStep:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+.methodPhase {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.methodPhaseLabel {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.methodStepNumber {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: var(--color-text);
+  opacity: 0.08;
+  line-height: 1;
+}
+
+.methodContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.methodTitle {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.methodDescription {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.ctaSection {
+  padding: var(--space-5xl) 0;
+  background: linear-gradient(135deg, var(--color-text), #2a2a2a);
+}
+
+.ctaContent {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-3xl));
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: var(--space-md);
+}
+
+.ctaSubtitle {
+  font-size: var(--font-size-lg);
+  color: rgba(255,255,255,0.6);
+  margin-bottom: var(--space-2xl);
+  line-height: 1.6;
+}
+
+.ctaActions {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .missionLayout { grid-template-columns: 1fr; gap: var(--space-2xl); }
+  .principlesGrid { grid-template-columns: 1fr; }
+  .methodStep { grid-template-columns: 1fr; }
+}

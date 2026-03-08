@@ -1,0 +1,374 @@
+.hero {
+  padding-top: 140px;
+  padding-bottom: var(--space-5xl);
+  background: linear-gradient(to bottom, var(--color-surface-alt), var(--color-bg));
+  overflow: hidden;
+}
+
+.heroContent {
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.heroTitle {
+  font-size: clamp(var(--font-size-2xl), 5vw, var(--font-size-4xl));
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: var(--letter-spacing-tight);
+  line-height: 1.05;
+}
+
+.accent { color: var(--color-accent); }
+
+.heroSubtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  max-width: 580px;
+}
+
+.heroCtas {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.section {
+  padding: var(--space-5xl) 0;
+}
+
+.sectionAlt {
+  background-color: var(--color-surface-alt);
+}
+
+/* Value grid */
+.valueGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-3xl);
+}
+
+.valueCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.valueIcon {
+  font-size: 2rem;
+}
+
+.valueTitle {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.valueDesc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* Process */
+.processGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-xl);
+  margin-top: var(--space-3xl);
+}
+
+.processStep {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.processNumber {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: var(--color-accent);
+  opacity: 0.4;
+  line-height: 1;
+}
+
+.processTitle {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.processDesc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* Services */
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-3xl);
+}
+
+.serviceCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.serviceTitle {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.serviceDesc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* CFO Plans */
+.plansGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-3xl);
+  align-items: start;
+}
+
+.planCard {
+  background-color: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.planCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.planBest {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-lg);
+}
+
+.planBestBadge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-accent);
+  color: #fff;
+  padding: 0.25rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.planTier {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.planPrice {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.planFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  list-style: none;
+  flex: 1;
+}
+
+.planFeature {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.planCheck {
+  color: var(--color-accent);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* BLKBOOK */
+.blkbook {
+  padding: var(--space-5xl) 0;
+  background: linear-gradient(135deg, var(--color-text) 0%, #1a1a1a 100%);
+}
+
+.blkbookInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5xl);
+  align-items: center;
+}
+
+.blkbookTitle {
+  font-size: clamp(var(--font-size-xl), 3vw, var(--font-size-2xl));
+  font-weight: 700;
+  color: #fff;
+  margin: var(--space-md) 0;
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.blkbookDesc {
+  font-size: var(--font-size-base);
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+  margin-bottom: var(--space-xl);
+}
+
+.blkbookVisual {
+  display: flex;
+  justify-content: center;
+}
+
+.blkbookCard {
+  background-color: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  width: 100%;
+  max-width: 340px;
+}
+
+.blkbookHeader {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.blkbookRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: var(--font-size-sm);
+  color: rgba(255,255,255,0.6);
+}
+
+.blkbookValue {
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Apply section */
+.applyLayout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: var(--space-5xl);
+  align-items: start;
+}
+
+.applyForm {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl);
+  box-shadow: var(--shadow-md);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.errorBanner {
+  padding: var(--space-md);
+  background-color: rgba(229, 62, 62, 0.08);
+  border: 1px solid rgba(229, 62, 62, 0.2);
+  border-radius: var(--radius-sm);
+  color: #c53030;
+  font-size: var(--font-size-sm);
+}
+
+.successState {
+  text-align: center;
+  padding: var(--space-3xl) var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.successIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: rgba(72, 187, 120, 0.15);
+  color: #276749;
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.successState h3 {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.successState p {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+  max-width: 360px;
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .valueGrid { grid-template-columns: repeat(2, 1fr); }
+  .processGrid { grid-template-columns: repeat(2, 1fr); }
+  .servicesGrid { grid-template-columns: repeat(2, 1fr); }
+  .plansGrid { grid-template-columns: repeat(2, 1fr); }
+  .blkbookInner { grid-template-columns: 1fr; }
+  .applyLayout { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .valueGrid { grid-template-columns: 1fr; }
+  .processGrid { grid-template-columns: 1fr; }
+  .servicesGrid { grid-template-columns: 1fr; }
+  .plansGrid { grid-template-columns: 1fr; }
+  .row { grid-template-columns: 1fr; }
+}
