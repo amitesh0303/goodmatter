@@ -11,6 +11,15 @@ export const metadata: Metadata = {
     title: 'GoodMatter — Private Investment Community',
     description: 'Good Deals. Good People. Good Matter.',
     type: 'website',
+    url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://goodmatter.com',
+    images: [
+      {
+        url: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'https://goodmatter.com'}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: 'GoodMatter — Private Investment Community',
+      },
+    ],
   },
 }
 

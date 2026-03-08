@@ -37,5 +37,6 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
+  // Only dashboard routes require authentication; the /investors login page remains public
   matcher: ['/investors/dashboard/:path*'],
 }
