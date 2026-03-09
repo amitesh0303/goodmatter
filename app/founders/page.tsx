@@ -141,7 +141,7 @@ export default function FoundersPage() {
             <div className={styles.signupForm}>
               {signupStatus === 'success' ? (
                 <div className={styles.successState}>
-                  <div className={styles.successIcon}>&#x2713;</div>
+                  <div className={styles.successIcon}>✓</div>
                   <h3>Account Created!</h3>
                   <p>{signupMessage}</p>
                   <Button variant="secondary" size="sm" onClick={() => { setSignupStatus('idle'); setSignupMessage('') }}>
@@ -251,8 +251,8 @@ export default function FoundersPage() {
             <div className={styles.planCard}>
               <div className={styles.planHeader}>
                 <h3 className={styles.planTier}>Plan 1 — Starter</h3>
-                <div className={styles.planPrice}>&#x20B9;10,000 &#x2013; &#x20B9;25,000<span>/month</span></div>
-                <div className={styles.planStage}>Pre-Revenue to Very Early Stage (0&#x2013;25 Lakh ARR)</div>
+                <div className={styles.planPrice}>₹10,000 – ₹25,000<span>/month</span></div>
+                <div className={styles.planStage}>Pre-Revenue to Very Early Stage (0–25 Lakh ARR)</div>
               </div>
               <p className={styles.planTagline}>Just starting out? We keep you legal and your books clean.</p>
               <ul className={styles.planFeatures}>
@@ -267,7 +267,7 @@ export default function FoundersPage() {
                   'LLP / ROC annual compliance filings',
                   'GST-compliant invoice templates',
                 ].map(f => (
-                  <li key={f} className={styles.planFeature}><span className={styles.planCheck}>&#x2713;</span>{f}</li>
+                  <li key={f} className={styles.planFeature}><span className={styles.planCheck}>✓</span>{f}</li>
                 ))}
               </ul>
               <Button href="/contact" variant="secondary" fullWidth>Get Started</Button>
@@ -277,8 +277,8 @@ export default function FoundersPage() {
               <span className={styles.planBestBadge}>Most Popular</span>
               <div className={styles.planHeader}>
                 <h3 className={styles.planTier}>Plan 2 — Growth</h3>
-                <div className={styles.planPrice}>&#x20B9;25,000 &#x2013; &#x20B9;50,000<span>/month</span></div>
-                <div className={styles.planStage}>Early Stage (25 Lakh &#x2013; 5 Crore ARR)</div>
+                <div className={styles.planPrice}>₹25,000 – ₹50,000<span>/month</span></div>
+                <div className={styles.planStage}>Early Stage (25 Lakh – 5 Crore ARR)</div>
               </div>
               <p className={styles.planTagline}>You&apos;re generating revenue. Now you need real finance, not just compliance.</p>
               <ul className={styles.planFeatures}>
@@ -294,7 +294,7 @@ export default function FoundersPage() {
                   'Accounting policy document',
                   'Accounting software setup and configuration',
                 ].map(f => (
-                  <li key={f} className={styles.planFeature}><span className={styles.planCheck}>&#x2713;</span>{f}</li>
+                  <li key={f} className={styles.planFeature}><span className={styles.planCheck}>✓</span>{f}</li>
                 ))}
               </ul>
               <Button href="/contact" variant="primary" fullWidth>Get Started</Button>
@@ -303,7 +303,7 @@ export default function FoundersPage() {
             <div className={styles.planCard}>
               <div className={styles.planHeader}>
                 <h3 className={styles.planTier}>Plan 3 — CFO Partner</h3>
-                <div className={styles.planPrice}>&#x20B9;50,000 &#x2013; &#x20B9;1,00,000<span>/month</span></div>
+                <div className={styles.planPrice}>₹50,000 – ₹1,00,000<span>/month</span></div>
                 <div className={styles.planStage}>Growth Stage (5 Crore+)</div>
               </div>
               <p className={styles.planTagline}>You&apos;re scaling fast and need financial intelligence, not just reporting.</p>
@@ -320,7 +320,7 @@ export default function FoundersPage() {
                   'Fundraising prep — investor-ready financial model and data room support',
                   'Board report preparation',
                 ].map(f => (
-                  <li key={f} className={styles.planFeature}><span className={styles.planCheck}>&#x2713;</span>{f}</li>
+                  <li key={f} className={styles.planFeature}><span className={styles.planCheck}>✓</span>{f}</li>
                 ))}
               </ul>
               <Button href="/contact" variant="secondary" fullWidth>Get Started</Button>
@@ -329,7 +329,7 @@ export default function FoundersPage() {
             <div className={styles.planCard}>
               <div className={styles.planHeader}>
                 <h3 className={styles.planTier}>Plan 4 — Fundraising CFO</h3>
-                <div className={styles.planPrice}>&#x20B9;75,000+<span>/month</span></div>
+                <div className={styles.planPrice}>₹75,000+<span>/month</span></div>
                 <div className={styles.planStage}>Pre-Series A / Series A / High-Growth Stage</div>
               </div>
               <p className={styles.planTagline}>You&apos;re raising a round or closing a large deal. We go all-in with you.</p>
@@ -344,7 +344,7 @@ export default function FoundersPage() {
                   'Legal notice handling and dispute support',
                   'MSA and SOW drafting for enterprise client deals',
                 ].map(f => (
-                  <li key={f} className={styles.planFeature}><span className={styles.planCheck}>&#x2713;</span>{f}</li>
+                  <li key={f} className={styles.planFeature}><span className={styles.planCheck}>✓</span>{f}</li>
                 ))}
               </ul>
               <Button href="/contact" variant="secondary" fullWidth>Get Started</Button>
@@ -356,22 +356,22 @@ export default function FoundersPage() {
             <h3 className={styles.oneTimeSectionTitle}>One-Time Setup &amp; Add-On Services</h3>
             <div className={styles.oneTimeGrid}>
               {[
-                { title: 'Company Registration (Pvt Ltd)', price: '&#x20B9;15,000', note: 'one-time', stage: 'One-Time Setup', items: ['Certificate of Incorporation', 'MOA & AOA drafting', 'CIN allotment', "Founders' agreements", 'ESOP policy draft'] },
-                { title: 'LLP Registration', price: '&#x20B9;8,000', note: 'one-time', stage: 'One-Time Setup', items: ['LLP agreement drafting', 'LLPIN allotment', 'Designated partner certificates'] },
-                { title: 'GST Registration', price: '&#x20B9;5,000', note: 'one-time', stage: 'One-Time Setup', items: ['GSTIN certificate', 'HSN/SAC code mapping for your products/services'] },
-                { title: 'Fundraising Legal Docs (SHA, SSA)', price: '&#x20B9;45,000', note: 'one-time', stage: 'Fundraising & Growth', items: ['Shareholders Agreement (SHA)', 'Share Subscription Agreement (SSA)', 'Term sheet review'] },
-                { title: 'ESOP Policy Setup', price: '&#x20B9;22,000', note: 'one-time', stage: 'Fundraising & Growth', items: ['ESOP plan document', 'Grant letters', 'Vesting schedule', 'Accounting treatment guidance'] },
-                { title: 'Revenue Leakage Audit', price: '&#x20B9;15,000 &#x2013; &#x20B9;30,000', note: 'per engagement', stage: 'Add-On Service', items: ['Billing gap identification', 'Unbilled work analysis', 'Collection efficiency review', 'Recommendations report'] },
-                { title: 'Accounting Software Setup', price: '&#x20B9;12,000', note: 'one-time', stage: 'One-Time Setup', items: ['Software configuration with your company structure', 'Chart of accounts setup', 'Opening balance entry', 'Team access configuration'] },
+                { title: 'Company Registration (Pvt Ltd)', price: '₹15,000', note: 'one-time', stage: 'One-Time Setup', items: ['Certificate of Incorporation', 'MOA & AOA drafting', 'CIN allotment', "Founders' agreements", 'ESOP policy draft'] },
+                { title: 'LLP Registration', price: '₹8,000', note: 'one-time', stage: 'One-Time Setup', items: ['LLP agreement drafting', 'LLPIN allotment', 'Designated partner certificates'] },
+                { title: 'GST Registration', price: '₹5,000', note: 'one-time', stage: 'One-Time Setup', items: ['GSTIN certificate', 'HSN/SAC code mapping for your products/services'] },
+                { title: 'Fundraising Legal Docs (SHA, SSA)', price: '₹45,000', note: 'one-time', stage: 'Fundraising & Growth', items: ['Shareholders Agreement (SHA)', 'Share Subscription Agreement (SSA)', 'Term sheet review'] },
+                { title: 'ESOP Policy Setup', price: '₹22,000', note: 'one-time', stage: 'Fundraising & Growth', items: ['ESOP plan document', 'Grant letters', 'Vesting schedule', 'Accounting treatment guidance'] },
+                { title: 'Revenue Leakage Audit', price: '₹15,000 – ₹30,000', note: 'per engagement', stage: 'Add-On Service', items: ['Billing gap identification', 'Unbilled work analysis', 'Collection efficiency review', 'Recommendations report'] },
+                { title: 'Accounting Software Setup', price: '₹12,000', note: 'one-time', stage: 'One-Time Setup', items: ['Software configuration with your company structure', 'Chart of accounts setup', 'Opening balance entry', 'Team access configuration'] },
               ].map(svc => (
                 <div key={svc.title} className={styles.oneTimeCard}>
                   <div className={styles.oneTimeCardHeader}>
                     <h4 className={styles.oneTimeTitle}>{svc.title}</h4>
-                    <div className={styles.oneTimePrice} dangerouslySetInnerHTML={{ __html: svc.price + ' <span>(' + svc.note + ')</span>' }} />
+                    <div className={styles.oneTimePrice}>{svc.price} <span>({svc.note})</span></div>
                     <div className={styles.oneTimeStage}>{svc.stage}</div>
                   </div>
                   <ul className={styles.oneTimeItems}>
-                    {svc.items.map(item => <li key={item}><span>&#x2713;</span>{item}</li>)}
+                    {svc.items.map(item => <li key={item}><span>✓</span>{item}</li>)}
                   </ul>
                 </div>
               ))}
@@ -392,7 +392,7 @@ export default function FoundersPage() {
             <div className={styles.premiumCard}>
               <div className={styles.premiumBadge}>Pitch Deck</div>
               <h3 className={styles.premiumTitle}>Pitch Deck Creation</h3>
-              <div className={styles.premiumPrice}>&#x20B9;30,000</div>
+              <div className={styles.premiumPrice}>₹30,000</div>
               <p className={styles.premiumNote}>After 15 slides, pricing increases depending on the number of slides.</p>
               <ul className={styles.premiumItems}>
                 {[
@@ -401,7 +401,7 @@ export default function FoundersPage() {
                   'Financial Projection', 'Use of Funds', 'Unit Economics', 'Market Strategy',
                   'Competitive Analysis', 'Founder Introduction', 'Funding Requirement', 'Contact Details',
                 ].map(item => (
-                  <li key={item}><span>&#x2713;</span>{item}</li>
+                  <li key={item}><span>✓</span>{item}</li>
                 ))}
               </ul>
               <Button href="/contact" variant="primary" fullWidth>Get Started</Button>
@@ -410,7 +410,7 @@ export default function FoundersPage() {
             <div className={styles.premiumCard}>
               <div className={styles.premiumBadge}>Startup</div>
               <h3 className={styles.premiumTitle}>Financial Modelling + Valuation</h3>
-              <div className={styles.premiumPrice}>&#x20B9;55,000</div>
+              <div className={styles.premiumPrice}>₹55,000</div>
               <p className={styles.premiumNote}>Investor-Ready Financial Model &amp; Valuation for Startups</p>
               <ul className={styles.premiumItems}>
                 {[
@@ -418,7 +418,7 @@ export default function FoundersPage() {
                   'DCF & Comparable valuation', 'WACC calculation', 'Break-even analysis',
                   'Cap table', 'Funding requirement analysis', 'Scenario analysis', 'Summary sheet',
                 ].map(item => (
-                  <li key={item}><span>&#x2713;</span>{item}</li>
+                  <li key={item}><span>✓</span>{item}</li>
                 ))}
               </ul>
               <Button href="/contact" variant="primary" fullWidth>Get Started</Button>
@@ -427,7 +427,7 @@ export default function FoundersPage() {
             <div className={styles.premiumCard}>
               <div className={styles.premiumBadge}>Running Company</div>
               <h3 className={styles.premiumTitle}>Financial Modelling + Valuation</h3>
-              <div className={styles.premiumPrice}>&#x20B9;65,000</div>
+              <div className={styles.premiumPrice}>₹65,000</div>
               <p className={styles.premiumNote}>Full-depth model for revenue-generating businesses</p>
               <ul className={styles.premiumItems}>
                 {[
@@ -437,31 +437,31 @@ export default function FoundersPage() {
                   'Break-Even Analysis', 'DCF & WACC Valuation', 'Comparable Valuation',
                   'Cap Table', 'Funding Requirement Analysis', 'Scenario Analysis', 'Summary Sheet',
                 ].map(item => (
-                  <li key={item}><span>&#x2713;</span>{item}</li>
+                  <li key={item}><span>✓</span>{item}</li>
                 ))}
               </ul>
               <Button href="/contact" variant="primary" fullWidth>Get Started</Button>
             </div>
 
             <div className={`${styles.premiumCard} ${styles.premiumCombo}`}>
-              <div className={styles.premiumBadge}>Combo &#x2014; Startup</div>
+              <div className={styles.premiumBadge}>Combo — Startup</div>
               <h3 className={styles.premiumTitle}>Financial Model + Valuation + Pitch Deck</h3>
-              <div className={styles.premiumPrice}>&#x20B9;80,000</div>
+              <div className={styles.premiumPrice}>₹80,000</div>
               <ul className={styles.premiumItems}>
                 {['Complete Financial Model', 'Valuation', 'Full Pitch Deck (Up to 15 slides)'].map(item => (
-                  <li key={item}><span>&#x2713;</span>{item}</li>
+                  <li key={item}><span>✓</span>{item}</li>
                 ))}
               </ul>
               <Button href="/contact" variant="primary" fullWidth>Get Started</Button>
             </div>
 
             <div className={`${styles.premiumCard} ${styles.premiumCombo}`}>
-              <div className={styles.premiumBadge}>Combo &#x2014; Running Company</div>
+              <div className={styles.premiumBadge}>Combo — Running Company</div>
               <h3 className={styles.premiumTitle}>Financial Model + Valuation + Pitch Deck</h3>
-              <div className={styles.premiumPrice}>&#x20B9;90,000</div>
+              <div className={styles.premiumPrice}>₹90,000</div>
               <ul className={styles.premiumItems}>
                 {['Complete Financial Model', 'Valuation', 'Full Pitch Deck (Up to 15 slides)'].map(item => (
-                  <li key={item}><span>&#x2713;</span>{item}</li>
+                  <li key={item}><span>✓</span>{item}</li>
                 ))}
               </ul>
               <Button href="/contact" variant="primary" fullWidth>Get Started</Button>
@@ -482,7 +482,7 @@ export default function FoundersPage() {
             <div className={styles.eventCard}>
               <div className={styles.eventIcon}>🎯</div>
               <h3 className={styles.eventTitle}>One-Time Events</h3>
-              <div className={styles.eventPrice}>$25 &#x2013; $99</div>
+              <div className={styles.eventPrice}>$25 – $99</div>
               <p className={styles.eventDesc}>60-minute curated 1:1 sessions. No decks, no long pitches.</p>
               <p className={styles.eventNote}>Best for early fundraising, partnerships, or fast customer discovery.</p>
             </div>
@@ -490,7 +490,7 @@ export default function FoundersPage() {
             <div className={styles.eventCard}>
               <div className={styles.eventIcon}>🔄</div>
               <h3 className={styles.eventTitle}>Memberships</h3>
-              <div className={styles.eventPrice}>$99 &#x2013; $795/month</div>
+              <div className={styles.eventPrice}>$99 – $795/month</div>
               <p className={styles.eventDesc}>Ongoing access to sessions + priority matching.</p>
               <p className={styles.eventNote}>Best for active fundraising or sales momentum.</p>
             </div>
@@ -498,7 +498,7 @@ export default function FoundersPage() {
             <div className={styles.eventCard}>
               <div className={styles.eventIcon}>🏢</div>
               <h3 className={styles.eventTitle}>Private / Corporate Sessions</h3>
-              <div className={styles.eventPrice}>$2,500 &#x2013; $100,000 avg deal</div>
+              <div className={styles.eventPrice}>$2,500 – $100,000 avg deal</div>
               <p className={styles.eventDesc}>Custom matchmaking sessions for B2B acquisition.</p>
               <p className={styles.eventNote}>Used by SaaS, platforms, and service companies.</p>
             </div>
@@ -510,11 +510,11 @@ export default function FoundersPage() {
               <p className={styles.eventDesc}>Face-time with real investors. No cold outreach. We run a curated outreach campaign on your behalf and invite thesis-aligned investors into a live matchmaking session.</p>
               <ul className={styles.eventFeatures}>
                 <li>Investors choose who they meet</li>
-                <li>You choose too &#x2014; matches are mutual</li>
+                <li>You choose too — matches are mutual</li>
                 <li>Up to 20 structured 1:1 convos in one hour</li>
                 <li>Built for pre-seed &amp; seed founders actively raising</li>
               </ul>
-              <p className={styles.eventDisclaimer}>No guarantees &#x2014; just high-intent investor conversations.</p>
+              <p className={styles.eventDisclaimer}>No guarantees — just high-intent investor conversations.</p>
             </div>
 
             <div className={`${styles.eventCard} ${styles.eventCardHighlight}`}>
@@ -526,8 +526,8 @@ export default function FoundersPage() {
                 <li>Filtered by role, industry, and intent</li>
                 <li>Mutual opt-in matching</li>
                 <li>No pitching, no pressure</li>
-                <li>20&#x2013;60 curated conversations in one hour</li>
-                <li>50&#x2013;70% follow-up rates</li>
+                <li>20–60 curated conversations in one hour</li>
+                <li>50–70% follow-up rates</li>
               </ul>
               <p className={styles.eventNote}>Use it for pipeline, partnerships, or industry positioning.</p>
             </div>
@@ -545,7 +545,7 @@ export default function FoundersPage() {
               <p className={styles.blkbookDesc}>
                 BLKBOOK is our proprietary deal sourcing and tracking platform.
                 Founders in our ecosystem get access to our curated database of
-                active investors, their thesis, and real-time availability signals &#x2014;
+                active investors, their thesis, and real-time availability signals —
                 so you pitch the right people at the right time.
               </p>
               <Button href="/contact" variant="primary" size="lg">Request BLKBOOK Access</Button>
@@ -593,7 +593,7 @@ export default function FoundersPage() {
             <div className={styles.applyForm}>
               {formStatus === 'success' ? (
                 <div className={styles.successState}>
-                  <div className={styles.successIcon}>&#x2713;</div>
+                  <div className={styles.successIcon}>✓</div>
                   <h3>Deal Submitted!</h3>
                   <p>Thank you for submitting your deal. Our team will review and reach out within 5 business days.</p>
                   <Button variant="secondary" size="sm" onClick={() => setFormStatus('idle')}>
@@ -672,10 +672,10 @@ export default function FoundersPage() {
                   </div>
 
                   <div className={styles.priorityTierBox}>
-                    <div className={styles.priorityTierTitle}>&#x1F680; Priority Tier</div>
+                    <div className={styles.priorityTierTitle}>🚀 Priority Tier</div>
                     <p className={styles.priorityTierDesc}>
                       Priority Tier is for founders who want <strong>active outreach to 40,000+ investors</strong>, not just a listing on a platform with 100+ investor access.
-                      <strong> &#x20B9;25,000/month</strong>
+                      <strong> ₹25,000/month</strong>
                     </p>
                     <div className={styles.priorityTierOptions}>
                       <label className={`${styles.priorityOption} ${priorityTier === 'subscribe' ? styles.prioritySelected : ''}`}>
@@ -687,7 +687,7 @@ export default function FoundersPage() {
                           onChange={() => setPriorityTier('subscribe')}
                           className={styles.dealTypeRadio}
                         />
-                        &#x2705; I want to subscribe
+                        ✅ I want to subscribe
                       </label>
                       <label className={`${styles.priorityOption} ${priorityTier === 'no_subscribe' ? styles.prioritySelected : ''}`}>
                         <input
@@ -698,7 +698,7 @@ export default function FoundersPage() {
                           onChange={() => setPriorityTier('no_subscribe')}
                           className={styles.dealTypeRadio}
                         />
-                        &#x274C; I don&apos;t want to subscribe
+                        ❌ I don&apos;t want to subscribe
                       </label>
                     </div>
                   </div>
@@ -729,7 +729,7 @@ export default function FoundersPage() {
             <div className={styles.introForm}>
               {introStatus === 'success' ? (
                 <div className={styles.successState}>
-                  <div className={styles.successIcon}>&#x2713;</div>
+                  <div className={styles.successIcon}>✓</div>
                   <h3>Request Submitted!</h3>
                   <p>We will review your introduction request and get back to you shortly.</p>
                   <Button variant="secondary" size="sm" onClick={() => setIntroStatus('idle')}>

@@ -152,7 +152,3 @@
   .actions { display: none; }
   .hamburger { display: flex; }
 }
-
-@media (min-width: 1201px) {
-  .hamburger { display: none; }
-}
