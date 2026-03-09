@@ -12,17 +12,17 @@ export default function HomePage() {
       {/* Hero */}
       <section className={styles.hero}>
         <div className={`container ${styles.heroContent}`}>
-          <span className={styles.heroBadge}>Private Investment Community</span>
-          <h1 className={styles.heroTitle}>
+          <span className={`${styles.heroBadge} ${styles.animateFadeIn}`}>Private Investment Community</span>
+          <h1 className={`${styles.heroTitle} ${styles.animateUp1}`}>
             Good Deals.<br />
             Good People.<br />
             <span className={styles.heroAccent}>Good Matter.</span>
           </h1>
-          <p className={styles.heroSubtitle}>
+          <p className={`${styles.heroSubtitle} ${styles.animateUp2}`}>
             GoodMatter connects accredited investors with curated, high-conviction deal flow. 
             We&apos;re not a platform — we&apos;re a community built on trust, alignment, and shared purpose.
           </p>
-          <div className={styles.heroCtas}>
+          <div className={`${styles.heroCtas} ${styles.animateUp3}`}>
             <Button href="/investors" variant="primary" size="lg">
               Apply for Investor Access
             </Button>
@@ -30,7 +30,7 @@ export default function HomePage() {
               Submit Your Company
             </Button>
           </div>
-          <div className={styles.heroStats}>
+          <div className={`${styles.heroStats} ${styles.animateUp4}`}>
             <div className={styles.stat}>
               <span className={styles.statValue}>$120M+</span>
               <span className={styles.statLabel}>Capital Deployed</span>
@@ -83,10 +83,10 @@ export default function HomePage() {
               </p>
             </div>
             <div className={styles.ctaBandActions}>
-              <Button href="/investors" variant="primary" size="lg">
+              <Button href="/investors" variant="light" size="lg">
                 Request Investor Access
               </Button>
-              <Button href="/contact" variant="ghost" size="lg">
+              <Button href="/contact" variant="outlineLight" size="lg">
                 Talk to Our Team
               </Button>
             </div>

@@ -3,15 +3,18 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-sm);
-  font-weight: 500;
-  border-radius: var(--radius-full);
-  transition: all 0.2s ease;
+  font-family: var(--font-family);
+  font-weight: 700;
+  border-radius: var(--radius-lg);
+  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s ease, background-color 0.18s ease;
   cursor: pointer;
   text-decoration: none;
   white-space: nowrap;
   position: relative;
   overflow: hidden;
-  border: 1.5px solid transparent;
+  border: 2px solid transparent;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .btn:disabled {
@@ -19,55 +22,98 @@
   cursor: not-allowed;
 }
 
+/* Micro-bounce on hover */
+.btn:hover:not(:disabled) {
+  transform: translateY(-3px) scale(1.01);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(-1px) scale(0.99);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+  .btn:hover:not(:disabled),
+  .btn:active:not(:disabled) {
+    transform: none;
+  }
+}
+
 /* Variants */
 .primary {
-  background-color: var(--color-accent);
+  background-color: var(--color-navy);
   color: #fff;
-  border-color: var(--color-accent);
+  border-color: var(--color-navy);
 }
 
 .primary:hover:not(:disabled) {
-  background-color: var(--color-accent-hover);
-  border-color: var(--color-accent-hover);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  background-color: #004080;
+  border-color: #004080;
+  box-shadow: var(--shadow-lg);
 }
 
 .secondary {
   background-color: transparent;
-  color: var(--color-text);
-  border-color: var(--color-border);
+  color: var(--color-navy);
+  border-color: var(--color-navy);
 }
 
 .secondary:hover:not(:disabled) {
-  border-color: var(--color-text);
-  background-color: var(--color-surface-alt);
-  transform: translateY(-1px);
+  background-color: rgba(0, 51, 102, 0.06);
+  box-shadow: var(--shadow-md);
 }
 
 .ghost {
   background-color: transparent;
-  color: var(--color-accent);
+  color: var(--color-blue);
   border-color: transparent;
 }
 
 .ghost:hover:not(:disabled) {
-  background-color: rgba(200, 169, 110, 0.08);
+  background-color: rgba(0, 123, 255, 0.08);
 }
 
 .glass {
   background-color: var(--color-glass);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  color: var(--color-text);
+  color: var(--color-navy);
   border-color: rgba(255,255,255,0.4);
   box-shadow: var(--shadow-sm);
 }
 
 .glass:hover:not(:disabled) {
-  background-color: rgba(255, 255, 255, 0.9);
-  transform: translateY(-1px);
+  background-color: rgba(255, 255, 255, 0.95);
   box-shadow: var(--shadow-md);
+}
+
+/* Light variant — for use on dark/navy backgrounds */
+.light {
+  background-color: var(--color-accent);
+  color: var(--color-navy);
+  border-color: var(--color-accent);
+  font-weight: 800;
+}
+
+.light:hover:not(:disabled) {
+  background-color: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Outline-light variant — transparent with white border for dark backgrounds */
+.outlineLight {
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.85);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.outlineLight:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 /* Sizes */

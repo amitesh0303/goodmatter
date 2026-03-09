@@ -23,22 +23,27 @@
 }
 
 .dealName {
+  font-family: var(--font-family);
   font-size: var(--font-size-xl);
-  font-weight: 700;
+  font-weight: 800;
   color: var(--color-text);
-  letter-spacing: var(--letter-spacing-tight);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
 .sector {
+  font-family: var(--font-mono);
   font-size: var(--font-size-sm);
-  color: var(--color-accent);
+  color: var(--color-blue);
   font-weight: 500;
 }
 
 .description {
+  font-family: var(--font-serif);
+  font-style: italic;
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
-  line-height: 1.6;
+  line-height: 1.7;
   flex: 1;
 }
 
@@ -47,8 +52,8 @@
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-sm);
   padding: var(--space-md) 0;
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
+  border-top: 1px dashed var(--color-border);
+  border-bottom: 1px dashed var(--color-border);
 }
 
 .metric {
@@ -58,16 +63,18 @@
 }
 
 .metricValue {
+  font-family: var(--font-mono);
   font-size: var(--font-size-base);
-  font-weight: 700;
-  color: var(--color-text);
+  font-weight: 500;
+  color: var(--color-navy);
 }
 
 .metricLabel {
+  font-family: var(--font-ui);
   font-size: var(--font-size-xs);
   color: var(--color-text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: var(--letter-spacing-caps);
 }
 
 .cardFooter {
@@ -77,9 +84,10 @@
 }
 
 .raise {
+  font-family: var(--font-mono);
   font-size: var(--font-size-sm);
-  font-weight: 600;
-  color: var(--color-text);
+  font-weight: 500;
+  color: var(--color-navy);
 }
 
 .cta {
@@ -92,6 +100,8 @@
 }
 
 .ctaText {
+  font-family: var(--font-serif);
+  font-style: italic;
   font-size: var(--font-size-base);
   color: var(--color-text-muted);
   max-width: 480px;

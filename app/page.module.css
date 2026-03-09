@@ -1,11 +1,59 @@
-/* Hero Section */
+/* ============================================================
+   Hero Section — Bold Minimalism 2026
+   Vibrant green backdrop + dot-grid texture + staggered reveal
+   ============================================================ */
+
+/* Entrance animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animateFadeIn {
+  animation: fadeIn 0.5s ease both;
+}
+
+.animateUp1 {
+  animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+.animateUp2 {
+  animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.32s both;
+}
+
+.animateUp3 {
+  animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.48s both;
+}
+
+.animateUp4 {
+  animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.62s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animateFadeIn,
+  .animateUp1,
+  .animateUp2,
+  .animateUp3,
+  .animateUp4 {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .hero {
   position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
   overflow: hidden;
-  background-color: var(--color-bg);
+  /* Vibrant green base */
+  background-color: var(--color-accent);
 }
 
 .heroContent {
@@ -17,40 +65,58 @@
   gap: var(--space-xl);
   padding-top: 100px;
   padding-bottom: var(--space-5xl);
-  max-width: 800px;
+  max-width: 860px;
 }
 
 .heroBadge {
   display: inline-flex;
   align-items: center;
   padding: 0.375rem 1rem;
-  background-color: rgba(200, 169, 110, 0.12);
-  color: var(--color-accent-hover);
+  background-color: rgba(0, 0, 0, 0.08);
+  color: var(--color-navy);
   border-radius: var(--radius-full);
+  font-family: var(--font-ui);
   font-size: var(--font-size-sm);
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: var(--letter-spacing-caps);
   text-transform: uppercase;
-  border: 1px solid rgba(200, 169, 110, 0.25);
+  border: 1px solid rgba(0, 51, 102, 0.25);
 }
 
 .heroTitle {
-  font-size: clamp(var(--font-size-3xl), 7vw, var(--font-size-4xl));
+  font-family: var(--font-family);
+  font-size: clamp(3.5rem, 9vw, 7.5rem);
   font-weight: 800;
-  letter-spacing: var(--letter-spacing-tight);
-  line-height: 1.05;
-  color: var(--color-text);
+  letter-spacing: var(--letter-spacing-caps);
+  line-height: 1.0;
+  color: var(--color-navy);
+  text-transform: uppercase;
 }
 
 .heroAccent {
-  color: var(--color-accent);
+  /* "Good Matter." accent — block underline */
+  display: inline;
+  position: relative;
+  color: var(--color-navy);
+}
+
+.heroAccent::after {
+  content: '';
+  display: block;
+  height: 6px;
+  background-color: var(--color-navy);
+  border-radius: 3px;
+  margin-top: 4px;
+  width: 100%;
 }
 
 .heroSubtitle {
-  font-size: var(--font-size-lg);
-  color: var(--color-text-muted);
-  max-width: 560px;
-  line-height: 1.7;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2vw, 1.375rem);
+  color: rgba(0, 51, 102, 0.82);
+  max-width: 580px;
+  line-height: 1.75;
 }
 
 .heroCtas {
@@ -64,7 +130,7 @@
   align-items: center;
   gap: var(--space-xl);
   padding-top: var(--space-xl);
-  border-top: 1px solid var(--color-border);
+  border-top: 2px dashed rgba(0, 51, 102, 0.25);
   flex-wrap: wrap;
 }
 
@@ -75,63 +141,67 @@
 }
 
 .statValue {
+  font-family: var(--font-mono);
   font-size: var(--font-size-2xl);
-  font-weight: 800;
-  color: var(--color-text);
-  letter-spacing: var(--letter-spacing-tight);
+  font-weight: 500;
+  color: var(--color-navy);
+  letter-spacing: -0.01em;
 }
 
 .statLabel {
+  font-family: var(--font-ui);
   font-size: var(--font-size-xs);
-  color: var(--color-text-muted);
+  color: rgba(0, 51, 102, 0.65);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--letter-spacing-caps);
 }
 
 .statDivider {
   width: 1px;
   height: 40px;
-  background-color: var(--color-border);
+  background-color: rgba(0, 51, 102, 0.2);
 }
 
-/* Hero decorative elements */
+/* Hero background layers */
 .heroBackground {
   position: absolute;
   inset: 0;
   pointer-events: none;
+  z-index: 0;
 }
 
-.heroGradient {
+/* Faint geometric dot-grid texture (1% opacity) */
+.heroBackground::before {
+  content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(200, 169, 110, 0.06), transparent);
+  background-image: radial-gradient(circle, rgba(0,0,0,0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.45;
 }
 
-.heroOrb1 {
+/* Radial edge fade — darker at corners for depth */
+.heroBackground::after {
+  content: '';
   position: absolute;
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(200, 169, 110, 0.08) 0%, transparent 70%);
-  right: -100px;
-  top: 50%;
-  transform: translateY(-50%);
+  inset: 0;
+  background: radial-gradient(ellipse 70% 80% at 50% 50%, transparent 40%, rgba(0, 80, 0, 0.18) 100%);
 }
 
+/* Legacy orb elements — hidden, replaced by pseudo-elements above */
+.heroGradient,
+.heroOrb1,
 .heroOrb2 {
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(200, 169, 110, 0.05) 0%, transparent 70%);
-  right: 200px;
-  bottom: 0;
+  display: none;
 }
 
-/* CTA Band */
+/* ============================================================
+   CTA Band — Navy backdrop
+   ============================================================ */
+
 .ctaBand {
   padding: var(--space-5xl) 0;
-  background: linear-gradient(135deg, var(--color-text) 0%, #2a2a2a 100%);
+  background: var(--color-navy);
 }
 
 .ctaBandInner {
@@ -142,18 +212,22 @@
 }
 
 .ctaBandTitle {
+  font-family: var(--font-family);
   font-size: clamp(var(--font-size-xl), 3vw, var(--font-size-2xl));
-  font-weight: 700;
-  color: #fff;
+  font-weight: 800;
+  color: var(--color-accent);
   margin-bottom: var(--space-md);
-  letter-spacing: var(--letter-spacing-tight);
+  letter-spacing: var(--letter-spacing-caps);
+  text-transform: uppercase;
 }
 
 .ctaBandSubtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
   font-size: var(--font-size-base);
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.75);
   max-width: 480px;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
 .ctaBandActions {
