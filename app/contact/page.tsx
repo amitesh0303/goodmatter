@@ -157,6 +157,27 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+      <section className={styles.contactInfoSection}>
+        <div className="container">
+          <div className={styles.contactInfoGrid}>
+            <div className={styles.contactInfoBlock}>
+              <h3 className={styles.contactInfoTitle}>Contact</h3>
+              <p className={styles.contactInfoText}>For institutional partnerships and inquiries:</p>
+              <a href="mailto:goodmatter05@gmail.com" className={styles.contactEmail}>goodmatter05@gmail.com</a>
+            </div>
+            <div className={styles.disclaimerBlock}>
+              <h3 className={styles.contactInfoTitle}>Disclaimer</h3>
+              <div className={styles.disclaimerText}>
+                <p>GoodMatter is a private platform for curated deal visibility.</p>
+                <p>All information is provided for informational purposes only and does not constitute investment advice, solicitation, or an offer to buy or sell securities.</p>
+                <p>Users are responsible for conducting their own due diligence.</p>
+                <p>Access may be restricted to accredited or qualified investors in applicable jurisdictions.</p>
+                <p>GoodMatter does not guarantee the accuracy or completeness of submitted information.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   )
 }

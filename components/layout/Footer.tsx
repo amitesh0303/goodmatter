@@ -8,7 +8,8 @@ export default function Footer() {
       <div className={`container ${styles.inner}`}>
         <div className={styles.col}>
           <Link href="/" className={styles.logo}>
-            <span className={styles.logoAccent}>Good</span>Matter
+            <img src="/goodmatter-logo.svg" alt="GoodMatter" className={styles.logoImg} />
+            <span><span className={styles.logoAccent}>Good</span>Matter</span>
           </Link>
           <p className={styles.tagline}>
             Good Deals. Good People. Good Matter.
