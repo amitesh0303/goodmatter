@@ -25,9 +25,9 @@
 .belt {
   display: flex;
   align-items: center;
-  gap: var(--space-4xl);
+  gap: var(--space-3xl);
   width: max-content;
-  animation: scroll 30s linear infinite;
+  animation: scroll 40s linear infinite;
 }
 
 .belt:hover {
@@ -35,12 +35,32 @@
 }
 
 .logoItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+
+.logoMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  flex-shrink: 0;
+}
+
+.logoName {
   font-size: var(--font-size-sm);
   font-weight: 600;
   color: var(--color-text-muted);
   white-space: nowrap;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 @keyframes scroll {

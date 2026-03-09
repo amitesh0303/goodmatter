@@ -5,7 +5,7 @@ import Card from '@/components/ui/Card'
 import SectionHeading from '@/components/ui/SectionHeading'
 import Input from '@/components/ui/Input'
 import Badge from '@/components/ui/Badge'
-import { submitFounderApplication } from './actions'
+import { submitFounderApplication, signUpStartup } from './actions'
 import styles from './founders.module.css'
 
 const services = [
@@ -55,6 +55,8 @@ const stageOptions = [
 export default function FoundersPage() {
   const [formStatus, setFormStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [formError, setFormError] = useState('')
+  const [signupStatus, setSignupStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [signupMessage, setSignupMessage] = useState('')
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -70,6 +72,21 @@ export default function FoundersPage() {
     } else {
       setFormStatus('error')
       setFormError(result.error || 'Something went wrong.')
+    }
+  }
+
+  async function handleSignup(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setSignupStatus('loading')
+    setSignupMessage('')
+    const formData = new FormData(e.currentTarget)
+    const result = await signUpStartup(formData)
+    if (result.success) {
+      setSignupStatus('success')
+      setSignupMessage(result.message || 'Account created!')
+    } else {
+      setSignupStatus('error')
+      setSignupMessage(result.error || 'Sign up failed. Please try again.')
     }
   }
 
@@ -91,6 +108,52 @@ export default function FoundersPage() {
             <div className={styles.heroCtas}>
               <Button href="#apply" variant="primary" size="lg">Apply Now</Button>
               <Button href="#services" variant="secondary" size="lg">Explore Services</Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Startup Signup */}
+      <section className={`${styles.section} ${styles.sectionAlt}`}>
+        <div className="container">
+          <div className={styles.signupLayout}>
+            <div>
+              <SectionHeading
+                title="Create Your Founder Account"
+                subtitle="Sign up to access the GoodMatter founder portal — track your application, connect with investors, and access resources."
+                align="left"
+              />
+            </div>
+            <div className={styles.signupForm}>
+              {signupStatus === 'success' ? (
+                <div className={styles.successState}>
+                  <div className={styles.successIcon}>✓</div>
+                  <h3>Account Created!</h3>
+                  <p>{signupMessage}</p>
+                  <Button variant="secondary" size="sm" onClick={() => { setSignupStatus('idle'); setSignupMessage('') }}>
+                    Sign Up Again
+                  </Button>
+                </div>
+              ) : (
+                <form onSubmit={handleSignup} className={styles.form} noValidate>
+                  {signupStatus === 'error' && (
+                    <div className={styles.errorBanner} role="alert">{signupMessage}</div>
+                  )}
+                  <div className={styles.row}>
+                    <Input label="Your Name" id="signup-full-name" name="full_name" placeholder="Jane Smith" required />
+                    <Input label="Startup Name" id="signup-startup-name" name="startup_name" placeholder="Acme Corp" required />
+                  </div>
+                  <Input label="Email Address" id="signup-email" name="email" type="email" placeholder="jane@acme.com" required />
+                  <Input label="Password" id="signup-password" name="password" type="password" placeholder="Min. 8 characters" required />
+                  <Button type="submit" variant="primary" size="lg" fullWidth loading={signupStatus === 'loading'}>
+                    Create Founder Account
+                  </Button>
+                  <p className={styles.signupNote}>
+                    Already have an account?{' '}
+                    <a href="/investors" className={styles.signupLink}>Sign in here</a>
+                  </p>
+                </form>
+              )}
             </div>
           </div>
         </div>
@@ -233,6 +296,20 @@ export default function FoundersPage() {
                 subtitle="Tell us about your company. We review all applications and respond within 5 business days."
                 align="left"
               />
+              <div className={styles.applyBullets}>
+                <div className={styles.applyBullet}>
+                  <span className={styles.applyBulletIcon}>📬</span>
+                  <span>Response within 5 business days</span>
+                </div>
+                <div className={styles.applyBullet}>
+                  <span className={styles.applyBulletIcon}>🤝</span>
+                  <span>Free initial screening call</span>
+                </div>
+                <div className={styles.applyBullet}>
+                  <span className={styles.applyBulletIcon}>🔒</span>
+                  <span>100% confidential</span>
+                </div>
+              </div>
             </div>
             <div className={styles.applyForm}>
               {formStatus === 'success' ? (
@@ -250,21 +327,20 @@ export default function FoundersPage() {
                     <div className={styles.errorBanner} role="alert">{formError}</div>
                   )}
                   <div className={styles.row}>
-                    <Input label="Startup Name" name="startup_name" placeholder="Acme Corp" required />
-                    <Input label="Your Name" name="founder_name" placeholder="Jane Smith" required />
+                    <Input label="Your Name" id="apply-founder-name" name="founder_name" placeholder="Jane Smith" required />
+                    <Input label="Startup Name" id="apply-startup-name" name="startup_name" placeholder="Acme Corp" required />
                   </div>
-                  <Input label="Email" name="email" type="email" placeholder="jane@acme.com" required />
+                  <Input label="Email" id="apply-email" name="email" type="email" placeholder="jane@acme.com" required />
                   <div className={styles.row}>
                     <Input label="Sector" name="sector" as="select" options={sectorOptions} />
                     <Input label="Stage" name="stage" as="select" options={stageOptions} />
                   </div>
-                  <Input label="Target Raise Amount" name="raise_amount" placeholder="e.g. $2,000,000" />
                   <Input
-                    label="Company Description"
+                    label="What does your startup do?"
                     name="description"
                     as="textarea"
-                    rows={4}
-                    placeholder="What does your company do? What problem are you solving? What traction do you have?"
+                    rows={3}
+                    placeholder="Briefly describe your product, problem, and traction."
                     required
                   />
                   <Button type="submit" variant="primary" size="lg" fullWidth loading={formStatus === 'loading'}>

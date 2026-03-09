@@ -8,6 +8,7 @@
   --color-accent-hover: #B8963E;
   --color-border: #E8E8E8;
   --color-glass: rgba(255, 255, 255, 0.72);
+  --header-height: 72px;
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
