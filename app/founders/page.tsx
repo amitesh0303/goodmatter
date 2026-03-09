@@ -5,7 +5,9 @@ import Card from '@/components/ui/Card'
 import SectionHeading from '@/components/ui/SectionHeading'
 import Input from '@/components/ui/Input'
 import Badge from '@/components/ui/Badge'
-import { submitFounderApplication, signUpStartup } from './actions'
+import { submitFounderApplication, signUpStartup, submitIntroductionRequest } from './actions'
+
+const INVESTOR_COUNT = '40,000+'
 import styles from './founders.module.css'
 
 const services = [
@@ -100,8 +102,15 @@ export default function FoundersPage() {
     e.preventDefault()
     setIntroStatus('loading')
     setIntroError('')
-    await new Promise(r => setTimeout(r, 1000))
-    setIntroStatus('success')
+    const formData = new FormData(e.currentTarget)
+    const result = await submitIntroductionRequest(formData)
+    if (result.success) {
+      setIntroStatus('success')
+      ;(e.target as HTMLFormElement).reset()
+    } else {
+      setIntroStatus('error')
+      setIntroError(result.error || 'Something went wrong.')
+    }
   }
 
   return (
@@ -182,7 +191,7 @@ export default function FoundersPage() {
           />
           <div className={styles.valueGrid}>
             {[
-              { icon: '🎯', title: 'Curated Investor Access', desc: 'Direct access to 40,000+ investors actively deploying capital in your sector.' },
+              { icon: '🎯', title: 'Curated Investor Access', desc: `Direct access to ${INVESTOR_COUNT} investors actively deploying capital in your sector.` },
               { icon: '📊', title: 'CFO-Grade Financials', desc: 'Professional financial modeling and reporting that makes investors confident and founders credible.' },
               { icon: '🤝', title: 'Strategic Guidance', desc: 'Hands-on advisory from operators who have built and scaled companies in your space.' },
               { icon: '⚡', title: 'Speed to Capital', desc: 'Our streamlined process gets qualified founders in front of investors in weeks, not months.' },
@@ -556,7 +565,7 @@ export default function FoundersPage() {
                 {['Active Investors Tracked', 'Sectors Covered', 'Avg. Match Rate', 'Close Rate'].map((label, i) => (
                   <div key={label} className={styles.blkbookRow}>
                     <span>{label}</span>
-                    <span className={styles.blkbookValue}>{['40,000+', '32', '68%', '24%'][i]}</span>
+                    <span className={styles.blkbookValue}>{[INVESTOR_COUNT, '32', '68%', '24%'][i]}</span>
                   </div>
                 ))}
               </div>
@@ -582,7 +591,7 @@ export default function FoundersPage() {
                 </div>
                 <div className={styles.applyBullet}>
                   <span className={styles.applyBulletIcon}>👥</span>
-                  <span>Access to 40,000+ investors</span>
+                  <span>Access to {INVESTOR_COUNT} investors</span>
                 </div>
                 <div className={styles.applyBullet}>
                   <span className={styles.applyBulletIcon}>🔒</span>
@@ -674,7 +683,7 @@ export default function FoundersPage() {
                   <div className={styles.priorityTierBox}>
                     <div className={styles.priorityTierTitle}>🚀 Priority Tier</div>
                     <p className={styles.priorityTierDesc}>
-                      Priority Tier is for founders who want <strong>active outreach to 40,000+ investors</strong>, not just a listing on a platform with 100+ investor access.
+                      Priority Tier is for founders who want <strong>active outreach to {INVESTOR_COUNT} investors</strong>, not just a listing on a platform with 100+ investor access.
                       <strong> ₹25,000/month</strong>
                     </p>
                     <div className={styles.priorityTierOptions}>

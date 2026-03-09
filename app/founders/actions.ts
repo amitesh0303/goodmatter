@@ -59,3 +59,30 @@ export async function submitFounderApplication(formData: FormData) {
   if (error) return { success: false, error: 'Failed to submit application. Please try again.' }
   return { success: true, applicationId: data.id }
 }
+
+export async function submitIntroductionRequest(formData: FormData) {
+  const investor_name = formData.get('investor_name') as string
+  const organization = formData.get('organization') as string
+  const email = formData.get('inv_email') as string
+  const deal_name = formData.get('deal_name') as string
+  const ticket_size = formData.get('ticket_size') as string
+
+  if (!investor_name) return { success: false, error: 'Investor name is required' }
+  if (!organization) return { success: false, error: 'Organization is required' }
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { success: false, error: 'Valid email is required' }
+  if (!deal_name) return { success: false, error: 'Deal name is required' }
+  if (!ticket_size) return { success: false, error: 'Intended ticket size is required' }
+
+  const supabase = await createClient()
+  const { error } = await supabase.from('introduction_requests').insert({
+    investor_name,
+    organization,
+    email,
+    deal_name,
+    ticket_size,
+    status: 'pending',
+  })
+
+  if (error) return { success: false, error: 'Failed to submit request. Please try again.' }
+  return { success: true }
+}
