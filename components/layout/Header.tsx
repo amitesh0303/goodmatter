@@ -62,8 +62,8 @@ export default function Header() {
           <Button href="/investors" variant="secondary" size="sm">
             Investor Login
           </Button>
-          <Button href="/founders" variant="primary" size="sm">
-            Apply as Founder
+          <Button href="/founders/login" variant="primary" size="sm">
+            Founder Login
           </Button>
         </div>
 
@@ -93,8 +93,8 @@ export default function Header() {
               <Button href="/investors" variant="secondary" fullWidth>
                 Investor Login
               </Button>
-              <Button href="/founders" variant="primary" fullWidth>
-                Apply as Founder
+              <Button href="/founders/login" variant="primary" fullWidth>
+                Founder Login
               </Button>
             </div>
           </nav>

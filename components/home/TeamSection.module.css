@@ -5,9 +5,12 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-lg);
   margin-top: var(--space-3xl);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .card {
@@ -49,15 +52,32 @@
 }
 
 .bio {
-  font-family: var(--font-serif);
-  font-style: italic;
+  font-family: var(--font-ui);
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
   line-height: 1.75;
+  flex: 1;
 }
 
-@media (max-width: 1024px) {
-  .grid { grid-template-columns: repeat(2, 1fr); }
+.linkedinBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background-color: #0A66C2;
+  color: #fff;
+  font-family: var(--font-ui);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  width: fit-content;
+}
+
+.linkedinBtn:hover {
+  background-color: #004182;
+  transform: translateY(-1px);
 }
 
 @media (max-width: 640px) {

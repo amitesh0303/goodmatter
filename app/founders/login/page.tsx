@@ -3,14 +3,14 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Input from '@/components/ui/Input'
 import Button from '@/components/ui/Button'
-import { signIn, signUp } from './actions'
-import styles from './investors.module.css'
+import { signInFounder, signUpStartup } from './actions'
+import styles from './founders-login.module.css'
 
 function validateEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
 }
 
-export default function InvestorsPage() {
+export default function FoundersLoginPage() {
   const [tab, setTab] = useState<'login' | 'signup'>('login')
   const [status, setStatus] = useState<'idle' | 'loading' | 'error' | 'success'>('idle')
   const [message, setMessage] = useState('')
@@ -30,9 +30,11 @@ export default function InvestorsPage() {
   function validateSignupForm(formData: FormData): Record<string, string> {
     const errors: Record<string, string> = {}
     const fullName = (formData.get('full_name') as string) || ''
+    const startupName = (formData.get('startup_name') as string) || ''
     const email = (formData.get('email') as string) || ''
     const password = (formData.get('password') as string) || ''
     if (!fullName.trim() || fullName.trim().length < 2) errors.full_name = 'Please enter your full name (at least 2 characters).'
+    if (!startupName.trim()) errors.startup_name = 'Please enter your startup name.'
     if (!email.trim()) errors.email = 'Email is required.'
     else if (!validateEmail(email)) errors.email = 'Please enter a valid email address.'
     if (!password) errors.password = 'Password is required.'
@@ -53,9 +55,9 @@ export default function InvestorsPage() {
     }
     setFieldErrors({})
     setStatus('loading')
-    const result = await signIn(formData)
+    const result = await signInFounder(formData)
     if (result.success) {
-      router.push('/investors/dashboard')
+      router.push('/founders')
       router.refresh()
     } else {
       setStatus('error')
@@ -76,7 +78,7 @@ export default function InvestorsPage() {
     }
     setFieldErrors({})
     setStatus('loading')
-    const result = await signUp(formData)
+    const result = await signUpStartup(formData)
     if (result.success) {
       setStatus('success')
       setMessage(result.message || 'Account created! Check your email to confirm.')
@@ -101,28 +103,28 @@ export default function InvestorsPage() {
             <span className={styles.logoAccent}>Good</span>Matter
           </div>
           <h2 className={styles.leftTitle}>
-            Private access<br />for accredited investors.
+            Founder portal.<br />Build your future.
           </h2>
           <p className={styles.leftSubtitle}>
-            Join our community to access exclusive deal flow, member-only analysis,
-            and co-investment opportunities.
+            Access GoodMatter&apos;s Impact Studio — submit your deal, request
+            investor introductions, and track your application.
           </p>
           <div className={styles.leftFeatures}>
             <div className={styles.feature}>
               <span className={styles.featureIcon}>✓</span>
-              <span>Curated deal memos and financial models</span>
+              <span>Submit your deal to 40,000+ investors</span>
             </div>
             <div className={styles.feature}>
               <span className={styles.featureIcon}>✓</span>
-              <span>Direct founder introduction requests</span>
+              <span>Request personalised investor introductions</span>
             </div>
             <div className={styles.feature}>
               <span className={styles.featureIcon}>✓</span>
-              <span>Portfolio performance tracking</span>
+              <span>Track your application status</span>
             </div>
             <div className={styles.feature}>
               <span className={styles.featureIcon}>✓</span>
-              <span>Community forums and co-investor network</span>
+              <span>Access CFO-grade financial tools</span>
             </div>
           </div>
         </div>
@@ -130,7 +132,6 @@ export default function InvestorsPage() {
 
       <div className={styles.right}>
         <div className={styles.formCard}>
-          {/* Tabs */}
           <div className={styles.tabs}>
             <button
               className={`${styles.tab} ${tab === 'login' ? styles.tabActive : ''}`}
@@ -167,23 +168,20 @@ export default function InvestorsPage() {
                   <p className={styles.formSubtitle}>
                     New here?{' '}
                     <button type="button" className={styles.linkBtn} onClick={() => switchTab('signup')}>
-                      Create an account
+                      Create a founder account
                     </button>
                   </p>
                   <form onSubmit={handleLogin} className={styles.form} noValidate>
                     <div>
-                      <Input label="Email Address" name="email" type="email" placeholder="you@company.com" required />
+                      <Input label="Email Address" name="email" type="email" placeholder="jane@startup.com" required />
                       {fieldErrors.email && <p className={styles.fieldError} role="alert">{fieldErrors.email}</p>}
                     </div>
                     <div>
                       <Input label="Password" name="password" type="password" placeholder="••••••••" required />
                       {fieldErrors.password && <p className={styles.fieldError} role="alert">{fieldErrors.password}</p>}
                     </div>
-                    <div className={styles.forgot}>
-                      <a href="#" className={styles.link}>Forgot password?</a>
-                    </div>
                     <Button type="submit" variant="primary" size="lg" fullWidth loading={status === 'loading'}>
-                      Sign In
+                      Sign In as Founder
                     </Button>
                   </form>
                 </>
@@ -196,12 +194,18 @@ export default function InvestorsPage() {
                     </button>
                   </p>
                   <form onSubmit={handleSignup} className={styles.form} noValidate>
-                    <div>
-                      <Input label="Full Name" name="full_name" placeholder="Jane Smith" required />
-                      {fieldErrors.full_name && <p className={styles.fieldError} role="alert">{fieldErrors.full_name}</p>}
+                    <div className={styles.row}>
+                      <div>
+                        <Input label="Your Name" name="full_name" placeholder="Jane Smith" required />
+                        {fieldErrors.full_name && <p className={styles.fieldError} role="alert">{fieldErrors.full_name}</p>}
+                      </div>
+                      <div>
+                        <Input label="Startup Name" name="startup_name" placeholder="Acme Corp" required />
+                        {fieldErrors.startup_name && <p className={styles.fieldError} role="alert">{fieldErrors.startup_name}</p>}
+                      </div>
                     </div>
                     <div>
-                      <Input label="Email Address" name="email" type="email" placeholder="you@company.com" required />
+                      <Input label="Email Address" name="email" type="email" placeholder="jane@startup.com" required />
                       {fieldErrors.email && <p className={styles.fieldError} role="alert">{fieldErrors.email}</p>}
                     </div>
                     <div>
@@ -209,7 +213,7 @@ export default function InvestorsPage() {
                       {fieldErrors.password && <p className={styles.fieldError} role="alert">{fieldErrors.password}</p>}
                     </div>
                     <Button type="submit" variant="primary" size="lg" fullWidth loading={status === 'loading'}>
-                      Create Account
+                      Create Founder Account
                     </Button>
                   </form>
                 </>
@@ -218,8 +222,8 @@ export default function InvestorsPage() {
           )}
 
           <p className={styles.disclaimer}>
-            Access is restricted to verified accredited investors.
-            Unauthorized access attempts are logged and reported.
+            Are you an investor?{' '}
+            <a href="/investors" className={styles.linkBtn}>Investor login →</a>
           </p>
         </div>
       </div>
