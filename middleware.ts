@@ -2,7 +2,7 @@ import { createServerClient } from '@supabase/ssr'
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-export async function proxy(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request })
 
   const supabase = createServerClient(
@@ -36,7 +36,7 @@ export async function proxy(request: NextRequest) {
   return supabaseResponse
 }
 
+// Only dashboard routes require authentication; the /investors login page remains public
 export const config = {
-  // Only dashboard routes require authentication; the /investors login page remains public
   matcher: ['/investors/dashboard/:path*'],
 }
