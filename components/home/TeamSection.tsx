@@ -5,28 +5,18 @@ import styles from './TeamSection.module.css'
 
 const team = [
   {
-    name: 'Marcus A. Williams',
-    role: 'Managing Partner',
-    bio: 'Former VP at Goldman Sachs with 20+ years in private equity. Marcus has deployed over $500M in capital across 80+ companies.',
-    initials: 'MW',
+    name: 'Anshu Gupta',
+    role: 'Partnership and Research Associate',
+    bio: 'Finance and strategy professional with CFA Level I cleared. Management graduate bringing analytical depth to deal sourcing and research.',
+    initials: 'AG',
+    linkedin: 'https://www.linkedin.com/in/anshugupta01',
   },
   {
-    name: 'Priya Nair',
-    role: 'Head of Impact Investments',
-    bio: 'Ex-McKinsey consultant turned investor. Priya specializes in climate tech and emerging market opportunities with a track record of 3x average returns.',
-    initials: 'PN',
-  },
-  {
-    name: 'Jordan Chen',
-    role: 'Chief Technology Officer',
-    bio: 'Serial entrepreneur and early Stripe engineer. Jordan evaluates technical moats and leads our AI/deep tech thesis with deep operational expertise.',
-    initials: 'JC',
-  },
-  {
-    name: 'Amara Osei',
-    role: 'Head of Founder Relations',
-    bio: 'Built and exited two startups before joining GoodMatter. Amara runs our Impact Studio and supports portfolio founders with hands-on guidance.',
-    initials: 'AO',
+    name: 'Saswata Dey',
+    role: 'Startup Scout',
+    bio: 'Finds high-potential startups before they\'re famous. Tracks emerging founders across sectors to surface breakout opportunities early.',
+    initials: 'SD',
+    linkedin: 'https://www.linkedin.com/in/saswata-dey-a5aa64176',
   },
 ]
 
@@ -49,6 +39,20 @@ export default function TeamSection() {
                   <p className={styles.role}>{member.role}</p>
                 </div>
                 <p className={styles.bio}>{member.bio}</p>
+                {member.linkedin && (
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.linkedinBtn}
+                    aria-label={`${member.name} on LinkedIn`}
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    LinkedIn
+                  </a>
+                )}
               </div>
             </Card>
           ))}

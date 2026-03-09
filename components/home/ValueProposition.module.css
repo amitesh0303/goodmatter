@@ -39,8 +39,7 @@
 }
 
 .description {
-  font-family: var(--font-serif);
-  font-style: italic;
+  font-family: var(--font-ui);
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
   line-height: 1.8;

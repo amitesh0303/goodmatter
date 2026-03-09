@@ -1,3 +1,4 @@
+/* Founders Login — mirrors investors login with founder-themed left panel */
 .page {
   min-height: 100vh;
   display: grid;
@@ -6,7 +7,7 @@
 }
 
 .left {
-  background: linear-gradient(135deg, var(--color-text) 0%, #1f1f1f 100%);
+  background: linear-gradient(135deg, #003366 0%, #004a99 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,7 +41,7 @@
 
 .leftSubtitle {
   font-size: var(--font-size-base);
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.7);
   line-height: 1.7;
   margin-bottom: var(--space-2xl);
 }
@@ -55,7 +56,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-md);
-  color: rgba(255,255,255,0.8);
+  color: rgba(255,255,255,0.85);
   font-size: var(--font-size-sm);
 }
 
@@ -83,15 +84,7 @@
 
 .formCard {
   width: 100%;
-  max-width: 400px;
-}
-
-.formTitle {
-  font-size: var(--font-size-2xl);
-  font-weight: 800;
-  color: var(--color-text);
-  margin-bottom: var(--space-xs);
-  letter-spacing: var(--letter-spacing-tight);
+  max-width: 420px;
 }
 
 .formSubtitle {
@@ -178,16 +171,6 @@
   text-decoration: underline;
 }
 
-.link {
-  color: var(--color-accent);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.link:hover {
-  text-decoration: underline;
-}
-
 .errorBanner {
   padding: var(--space-md);
   background-color: rgba(229, 62, 62, 0.08);
@@ -204,9 +187,16 @@
   gap: var(--space-md);
 }
 
-.forgot {
-  text-align: right;
-  margin-top: calc(-1 * var(--space-sm));
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.fieldError {
+  font-size: var(--font-size-xs);
+  color: #c53030;
+  margin-top: 4px;
 }
 
 .disclaimer {
@@ -217,14 +207,9 @@
   line-height: 1.6;
 }
 
-.fieldError {
-  font-size: var(--font-size-xs);
-  color: #c53030;
-  margin-top: 4px;
-}
-
 @media (max-width: 768px) {
   .page { grid-template-columns: 1fr; }
   .left { display: none; }
-  .right { min-height: 100vh; }
+  .right { min-height: 100vh; padding: var(--space-3xl) var(--space-lg); }
+  .row { grid-template-columns: 1fr; }
 }

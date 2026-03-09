@@ -45,10 +45,9 @@
 }
 
 .tagline {
-  font-family: var(--font-serif);
+  font-family: var(--font-ui);
   font-size: var(--font-size-base);
   color: rgba(255, 255, 255, 0.7);
-  font-style: italic;
 }
 
 .disclaimer {

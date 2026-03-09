@@ -19,7 +19,7 @@
 .inner {
   display: flex;
   align-items: center;
-  gap: var(--space-xl);
+  gap: var(--space-lg);
   height: var(--header-height);
 }
 
@@ -147,8 +147,15 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
   .nav { display: none; }
   .actions { display: none; }
   .hamburger { display: flex; }
+}
+
+@media (min-width: 1281px) {
+  .actions {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
 }

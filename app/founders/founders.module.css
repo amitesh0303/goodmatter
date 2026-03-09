@@ -352,6 +352,47 @@
   box-shadow: var(--shadow-md);
 }
 
+/* Auth gate — shown when user is not logged in */
+.authGate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--space-md);
+  padding: var(--space-3xl) var(--space-xl);
+  background-color: var(--color-surface-alt);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.authGateIcon {
+  font-size: 2.5rem;
+  opacity: 0.6;
+}
+
+.authGateTitle {
+  font-family: var(--font-family);
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.authGateDesc {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+.authGateBtns {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: var(--space-sm);
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -605,7 +646,6 @@
   font-family: var(--font-ui);
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
-  font-style: italic;
   margin-bottom: var(--space-md);
 }
 
@@ -764,7 +804,6 @@
   font-family: var(--font-ui);
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
-  font-style: italic;
 }
 
 .premiumItems {
@@ -848,7 +887,6 @@
   font-family: var(--font-ui);
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
-  font-style: italic;
 }
 
 .eventFeatures {
@@ -878,7 +916,6 @@
   font-family: var(--font-ui);
   font-size: var(--font-size-xs);
   color: var(--color-text-muted);
-  font-style: italic;
   border-top: 1px solid var(--color-border);
   padding-top: var(--space-sm);
   margin-top: var(--space-sm);
@@ -899,5 +936,79 @@
   }
   .eventCardHighlight {
     grid-column: span 1;
+  }
+}
+
+/* ── Mobile overflow & responsive fixes ── */
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 100px;
+    padding-bottom: var(--space-3xl);
+    overflow-x: hidden;
+  }
+
+  .heroCtas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .signupForm {
+    padding: var(--space-lg);
+  }
+
+  .applyForm {
+    padding: var(--space-lg);
+  }
+
+  .planCard {
+    padding: var(--space-lg);
+    min-width: 0;
+    word-break: break-word;
+  }
+
+  .planPrice {
+    font-size: var(--font-size-xl);
+  }
+
+  .blkbookCard {
+    max-width: 100%;
+  }
+
+  .priorityTierBox {
+    padding: var(--space-md);
+  }
+
+  .introForm {
+    padding: var(--space-lg);
+  }
+
+  .section {
+    padding: var(--space-3xl) 0;
+  }
+}
+
+/* Prevent any child elements from causing horizontal scroll */
+.plansGrid > * {
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.signupForm,
+.applyForm,
+.introForm {
+  overflow: hidden;
+}
+
+/* Deal form section responsive */
+@media (max-width: 480px) {
+  .dealTypeGrid {
+    flex-direction: column;
+  }
+  .dealTypeOption {
+    width: 100%;
+  }
+  .priorityTierOptions {
+    gap: var(--space-xs);
   }
 }

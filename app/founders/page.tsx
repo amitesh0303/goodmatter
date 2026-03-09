@@ -1,11 +1,12 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Button from '@/components/ui/Button'
 import Card from '@/components/ui/Card'
 import SectionHeading from '@/components/ui/SectionHeading'
 import Input from '@/components/ui/Input'
 import Badge from '@/components/ui/Badge'
 import { submitFounderApplication, signUpStartup, submitIntroductionRequest } from './actions'
+import { createClient } from '@/lib/supabase/client'
 
 const INVESTOR_COUNT = '40,000+'
 import styles from './founders.module.css'
@@ -67,6 +68,22 @@ export default function FoundersPage() {
   const [signupMessage, setSignupMessage] = useState('')
   const [introStatus, setIntroStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [introError, setIntroError] = useState('')
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null)
+
+  useEffect(() => {
+    try {
+      const supabase = createClient()
+      supabase.auth.getUser().then(({ data }) => {
+        setIsLoggedIn(!!data.user)
+      }).catch(() => setIsLoggedIn(false))
+      const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+        setIsLoggedIn(!!session?.user)
+      })
+      return () => subscription.unsubscribe()
+    } catch {
+      setIsLoggedIn(false)
+    }
+  }, [])
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -600,7 +617,23 @@ export default function FoundersPage() {
               </div>
             </div>
             <div className={styles.applyForm}>
-              {formStatus === 'success' ? (
+              {isLoggedIn === false ? (
+                <div className={styles.authGate}>
+                  <div className={styles.authGateIcon}>🔒</div>
+                  <h3 className={styles.authGateTitle}>Login required</h3>
+                  <p className={styles.authGateDesc}>
+                    Please sign in or create a founder account to submit your deal.
+                  </p>
+                  <div className={styles.authGateBtns}>
+                    <Button href="/founders/login" variant="primary" size="lg">
+                      Sign In as Founder
+                    </Button>
+                    <Button href="/founders/login#signup" variant="secondary" size="lg">
+                      Create Account
+                    </Button>
+                  </div>
+                </div>
+              ) : formStatus === 'success' ? (
                 <div className={styles.successState}>
                   <div className={styles.successIcon}>✓</div>
                   <h3>Deal Submitted!</h3>
@@ -736,7 +769,20 @@ export default function FoundersPage() {
               />
             </div>
             <div className={styles.introForm}>
-              {introStatus === 'success' ? (
+              {isLoggedIn === false ? (
+                <div className={styles.authGate}>
+                  <div className={styles.authGateIcon}>🔒</div>
+                  <h3 className={styles.authGateTitle}>Login required</h3>
+                  <p className={styles.authGateDesc}>
+                    Please sign in to submit an investor introduction request.
+                  </p>
+                  <div className={styles.authGateBtns}>
+                    <Button href="/founders/login" variant="primary" size="lg">
+                      Sign In as Founder
+                    </Button>
+                  </div>
+                </div>
+              ) : introStatus === 'success' ? (
                 <div className={styles.successState}>
                   <div className={styles.successIcon}>✓</div>
                   <h3>Request Submitted!</h3>
