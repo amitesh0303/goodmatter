@@ -8,10 +8,11 @@
 
 .label {
   text-align: center;
+  font-family: var(--font-ui);
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--letter-spacing-caps);
   font-weight: 500;
   margin-bottom: var(--space-xl);
 }
@@ -50,12 +51,14 @@
   border-radius: var(--radius-sm);
   color: #fff;
   font-size: 10px;
-  font-weight: 800;
+  font-family: var(--font-mono);
+  font-weight: 500;
   letter-spacing: 0.03em;
   flex-shrink: 0;
 }
 
 .logoName {
+  font-family: var(--font-ui);
   font-size: var(--font-size-sm);
   font-weight: 600;
   color: var(--color-text-muted);

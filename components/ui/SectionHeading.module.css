@@ -7,11 +7,13 @@
 .right { text-align: right; margin-left: auto; }
 
 .title {
+  font-family: var(--font-family);
   font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-3xl));
-  font-weight: 700;
+  font-weight: 800;
   color: var(--color-text);
-  letter-spacing: var(--letter-spacing-tight);
-  line-height: 1.15;
+  letter-spacing: var(--letter-spacing-caps);
+  text-transform: uppercase;
+  line-height: 1.1;
   margin-bottom: var(--space-md);
 }
 
@@ -20,7 +22,9 @@
 }
 
 .subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
   font-size: var(--font-size-lg);
   color: var(--color-text-muted);
-  line-height: 1.6;
+  line-height: 1.7;
 }

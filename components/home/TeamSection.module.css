@@ -1,5 +1,6 @@
 .section {
   padding: var(--space-5xl) 0;
+  background-color: var(--color-bg);
 }
 
 .grid {
@@ -18,11 +19,12 @@
 .avatar {
   width: 56px;
   height: 56px;
-  border-radius: var(--radius-full);
-  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-hover));
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-blue) 100%);
   color: #fff;
+  font-family: var(--font-mono);
   font-size: var(--font-size-base);
-  font-weight: 700;
+  font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,22 +32,28 @@
 }
 
 .name {
+  font-family: var(--font-family);
   font-size: var(--font-size-base);
   font-weight: 700;
   color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .role {
+  font-family: var(--font-mono);
   font-size: var(--font-size-sm);
-  color: var(--color-accent);
+  color: var(--color-blue);
   font-weight: 500;
   margin-top: 2px;
 }
 
 .bio {
+  font-family: var(--font-serif);
+  font-style: italic;
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
 @media (max-width: 1024px) {

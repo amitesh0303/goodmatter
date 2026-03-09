@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import styles from './Button.module.css'
 
-type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'glass'
+type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'glass' | 'light' | 'outlineLight'
 type ButtonSize = 'sm' | 'md' | 'lg'
 
 interface ButtonProps {

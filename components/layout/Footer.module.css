@@ -1,5 +1,5 @@
 .footer {
-  background-color: var(--color-text);
+  background-color: var(--color-navy);
   color: rgba(255, 255, 255, 0.8);
   padding-top: var(--space-5xl);
   padding-bottom: var(--space-xl);
@@ -21,11 +21,13 @@
 }
 
 .logo {
+  font-family: var(--font-family);
   font-size: var(--font-size-xl);
-  font-weight: 700;
+  font-weight: 800;
   color: #fff;
   text-decoration: none;
-  letter-spacing: var(--letter-spacing-tight);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .logoAccent {
@@ -33,12 +35,14 @@
 }
 
 .tagline {
+  font-family: var(--font-serif);
   font-size: var(--font-size-base);
   color: rgba(255, 255, 255, 0.7);
   font-style: italic;
 }
 
 .disclaimer {
+  font-family: var(--font-ui);
   font-size: var(--font-size-sm);
   color: rgba(255, 255, 255, 0.4);
   line-height: 1.6;
@@ -46,11 +50,12 @@
 }
 
 .colHeading {
+  font-family: var(--font-family);
   font-size: var(--font-size-sm);
-  font-weight: 600;
+  font-weight: 700;
   color: #fff;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--letter-spacing-caps);
   margin-bottom: var(--space-sm);
 }
 
@@ -61,6 +66,7 @@
 }
 
 .link {
+  font-family: var(--font-ui);
   font-size: var(--font-size-sm);
   color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
@@ -81,6 +87,7 @@
 }
 
 .copyright {
+  font-family: var(--font-ui);
   font-size: var(--font-size-sm);
   color: rgba(255, 255, 255, 0.4);
 }
