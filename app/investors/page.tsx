@@ -3,29 +3,49 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Input from '@/components/ui/Input'
 import Button from '@/components/ui/Button'
-import { signIn } from './actions'
+import { signIn, signUp } from './actions'
 import styles from './investors.module.css'
 
-export default function InvestorsLoginPage() {
-  const [status, setStatus] = useState<'idle' | 'loading' | 'error'>('idle')
-  const [errorMsg, setErrorMsg] = useState('')
+export default function InvestorsPage() {
+  const [tab, setTab] = useState<'login' | 'signup'>('login')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'error' | 'success'>('idle')
+  const [message, setMessage] = useState('')
   const router = useRouter()
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleLogin(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setStatus('loading')
-    setErrorMsg('')
-
+    setMessage('')
     const formData = new FormData(e.currentTarget)
     const result = await signIn(formData)
-
     if (result.success) {
       router.push('/investors/dashboard')
       router.refresh()
     } else {
       setStatus('error')
-      setErrorMsg(result.error || 'Login failed. Please try again.')
+      setMessage(result.error || 'Login failed. Please try again.')
     }
+  }
+
+  async function handleSignup(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setStatus('loading')
+    setMessage('')
+    const formData = new FormData(e.currentTarget)
+    const result = await signUp(formData)
+    if (result.success) {
+      setStatus('success')
+      setMessage(result.message || 'Account created! Check your email to confirm.')
+    } else {
+      setStatus('error')
+      setMessage(result.error || 'Sign up failed. Please try again.')
+    }
+  }
+
+  function switchTab(next: 'login' | 'signup') {
+    setTab(next)
+    setStatus('idle')
+    setMessage('')
   }
 
   return (
@@ -39,7 +59,7 @@ export default function InvestorsLoginPage() {
             Private access<br />for accredited investors.
           </h2>
           <p className={styles.leftSubtitle}>
-            Log in to access exclusive deal flow, member-only analysis, 
+            Join our community to access exclusive deal flow, member-only analysis,
             and co-investment opportunities.
           </p>
           <div className={styles.leftFeatures}>
@@ -65,49 +85,80 @@ export default function InvestorsLoginPage() {
 
       <div className={styles.right}>
         <div className={styles.formCard}>
-          <h1 className={styles.formTitle}>Investor Login</h1>
-          <p className={styles.formSubtitle}>
-            Don&apos;t have an account?{' '}
-            <a href="/contact" className={styles.link}>Apply for access</a>
-          </p>
-
-          {status === 'error' && (
-            <div className={styles.errorBanner} role="alert">
-              {errorMsg}
-            </div>
-          )}
-
-          <form onSubmit={handleSubmit} className={styles.form} noValidate>
-            <Input
-              label="Email Address"
-              name="email"
-              type="email"
-              placeholder="you@company.com"
-              required
-            />
-            <Input
-              label="Password"
-              name="password"
-              type="password"
-              placeholder="••••••••"
-              required
-            />
-            <div className={styles.forgot}>
-              <a href="#" className={styles.link}>Forgot password?</a>
-            </div>
-            <Button
-              type="submit"
-              variant="primary"
-              size="lg"
-              fullWidth
-              loading={status === 'loading'}
+          {/* Tabs */}
+          <div className={styles.tabs}>
+            <button
+              className={`${styles.tab} ${tab === 'login' ? styles.tabActive : ''}`}
+              onClick={() => switchTab('login')}
+              type="button"
             >
               Sign In
-            </Button>
-          </form>
+            </button>
+            <button
+              className={`${styles.tab} ${tab === 'signup' ? styles.tabActive : ''}`}
+              onClick={() => switchTab('signup')}
+              type="button"
+            >
+              Sign Up
+            </button>
+          </div>
+
+          {status === 'success' ? (
+            <div className={styles.successBanner} role="status">
+              <div className={styles.successIcon}>✓</div>
+              <p>{message}</p>
+              <Button variant="secondary" size="sm" onClick={() => switchTab('login')}>
+                Back to Sign In
+              </Button>
+            </div>
+          ) : (
+            <>
+              {status === 'error' && (
+                <div className={styles.errorBanner} role="alert">{message}</div>
+              )}
+
+              {tab === 'login' ? (
+                <>
+                  <p className={styles.formSubtitle}>
+                    New here?{' '}
+                    <button type="button" className={styles.linkBtn} onClick={() => switchTab('signup')}>
+                      Create an account
+                    </button>
+                  </p>
+                  <form onSubmit={handleLogin} className={styles.form} noValidate>
+                    <Input label="Email Address" name="email" type="email" placeholder="you@company.com" required />
+                    <Input label="Password" name="password" type="password" placeholder="••••••••" required />
+                    <div className={styles.forgot}>
+                      <a href="#" className={styles.link}>Forgot password?</a>
+                    </div>
+                    <Button type="submit" variant="primary" size="lg" fullWidth loading={status === 'loading'}>
+                      Sign In
+                    </Button>
+                  </form>
+                </>
+              ) : (
+                <>
+                  <p className={styles.formSubtitle}>
+                    Already have an account?{' '}
+                    <button type="button" className={styles.linkBtn} onClick={() => switchTab('login')}>
+                      Sign in
+                    </button>
+                  </p>
+                  <form onSubmit={handleSignup} className={styles.form} noValidate>
+                    <Input label="Full Name" name="full_name" placeholder="Jane Smith" required />
+                    <Input label="Email Address" name="email" type="email" placeholder="you@company.com" required />
+                    <Input label="Password" name="password" type="password" placeholder="Min. 8 characters" required />
+                    <Button type="submit" variant="primary" size="lg" fullWidth loading={status === 'loading'}>
+                      Create Account
+                    </Button>
+                  </form>
+                </>
+              )}
+            </>
+          )}
 
           <p className={styles.disclaimer}>
-            Access is restricted to verified accredited investors. 
+            Access is restricted to verified accredited investors.
             Unauthorized access attempts are logged and reported.
           </p>
         </div>
