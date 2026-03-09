@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+  <rect width="800" height="800" fill="#1B3FA0"/>
+  <rect x="210" y="170" width="380" height="105" fill="#22C55E"/>
+  <rect x="240" y="295" width="320" height="90" fill="#60B4FF"/>
+  <rect x="195" y="312" width="45" height="56" fill="#60B4FF"/>
+  <rect x="560" y="312" width="45" height="56" fill="#60B4FF"/>
+  <rect x="220" y="415" width="42" height="42" fill="#FFD700"/>
+  <rect x="305" y="395" width="42" height="42" fill="#FFD700"/>
+  <rect x="400" y="420" width="42" height="42" fill="#FFD700"/>
+  <rect x="475" y="395" width="42" height="42" fill="#FFD700"/>
+  <rect x="545" y="418" width="42" height="42" fill="#FFD700"/>
+  <rect x="330" y="492" width="38" height="38" fill="#EF4444"/>
+  <rect x="372" y="468" width="56" height="62" fill="#EF4444"/>
+  <rect x="432" y="492" width="38" height="38" fill="#EF4444"/>
+  <text x="400" y="715" font-family="Arial, sans-serif" font-size="40" font-weight="300" letter-spacing="16" fill="#A0B8D8" text-anchor="middle">GOODMATTER</text>
+</svg>

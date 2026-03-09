@@ -42,7 +42,8 @@ export default function Header() {
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.inner}`}>
         <Link href="/" className={styles.logo}>
-          <span className={styles.logoAccent}>Good</span>Matter
+          <img src="/goodmatter-logo.svg" alt="GoodMatter" className={styles.logoImg} />
+          <span className={styles.logoText}><span className={styles.logoAccent}>Good</span>Matter</span>
         </Link>
 
         <nav className={styles.nav} aria-label="Main navigation">

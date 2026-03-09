@@ -6,7 +6,7 @@
 .default {
   background-color: var(--color-surface);
   box-shadow: var(--shadow-lg);
-  border: 1px solid var(--color-border);
+  border: 2px solid var(--color-border);
 }
 
 .glass {
@@ -19,7 +19,7 @@
 
 .outlined {
   background-color: transparent;
-  border: 2px solid var(--color-border);
+  border: 2px solid var(--color-navy);
 }
 
 .padding-sm { padding: var(--space-lg); }
@@ -27,8 +27,8 @@
 .padding-lg { padding: var(--space-2xl); }
 
 .hoverable:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 48px rgba(0, 51, 102, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0 var(--color-navy);
 }
 
 @media (prefers-reduced-motion: reduce) {

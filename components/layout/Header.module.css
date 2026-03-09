@@ -32,10 +32,29 @@
   color: var(--color-navy);
   text-decoration: none;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
 }
 
 .logoAccent {
   color: var(--color-accent);
+}
+
+.logoImg {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.logoText {
+  font-family: var(--font-family);
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-navy);
 }
 
 .nav {
@@ -128,8 +147,12 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .nav { display: none; }
   .actions { display: none; }
   .hamburger { display: flex; }
+}
+
+@media (min-width: 1201px) {
+  .hamburger { display: none; }
 }
