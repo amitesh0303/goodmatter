@@ -1,79 +1,82 @@
 .section {
   padding: var(--space-5xl) 0;
-  background-color: var(--color-surface-alt);
+  background-color: var(--color-surface-secondary);
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-lg);
+  gap: var(--space-xl);
   margin-top: var(--space-3xl);
 }
 
 .card {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: var(--space-lg);
 }
 
 .cardHeader {
   display: flex;
-  align-items: center;
-  gap: var(--space-sm);
+  align-items: flex-start;
+  gap: var(--space-md);
 }
 
 .dealName {
   font-family: var(--font-family);
-  font-size: var(--font-size-xl);
-  font-weight: 800;
-  color: var(--color-text);
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
+  font-size: clamp(var(--font-size-base), 2vw, var(--font-size-lg));
+  font-weight: var(--weight-bold);
+  color: var(--color-text-primary);
+  letter-spacing: var(--letter-spacing-tight);
+  text-transform: none;
 }
 
 .sector {
-  font-family: var(--font-mono);
-  font-size: var(--font-size-sm);
-  color: var(--color-blue);
-  font-weight: 500;
+  font-family: var(--font-ui);
+  font-size: var(--font-size-xs);
+  color: var(--color-primary);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
 }
 
 .description {
   font-family: var(--font-ui);
   font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
-  line-height: 1.7;
+  color: var(--color-text-secondary);
+  line-height: 1.85;
   flex: 1;
 }
 
 .metrics {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-sm);
-  padding: var(--space-md) 0;
-  border-top: 1px dashed var(--color-border);
-  border-bottom: 1px dashed var(--color-border);
+  gap: var(--space-md);
+  padding: var(--space-lg) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .metric {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
 }
 
 .metricValue {
   font-family: var(--font-mono);
-  font-size: var(--font-size-base);
-  font-weight: 500;
-  color: var(--color-navy);
+  font-size: clamp(var(--font-size-base), 1.5vw, var(--font-size-lg));
+  font-weight: var(--weight-bold);
+  color: var(--color-primary);
 }
 
 .metricLabel {
   font-family: var(--font-ui);
   font-size: var(--font-size-xs);
-  color: var(--color-text-muted);
+  color: var(--color-text-tertiary);
   text-transform: uppercase;
-  letter-spacing: var(--letter-spacing-caps);
+  letter-spacing: var(--letter-spacing-wide);
+  font-weight: var(--weight-semibold);
 }
 
 .cardFooter {

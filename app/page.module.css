@@ -1,6 +1,6 @@
 /* ============================================================
-   Hero Section — Bold Minimalism 2026
-   Vibrant green backdrop + dot-grid texture + staggered reveal
+   Hero Section — Editorial, Premium Investment Platform
+   Bold typography + Purposeful visuals + Strategic hierarchy
    ============================================================ */
 
 /* Entrance animations */
@@ -15,23 +15,23 @@
 }
 
 .animateFadeIn {
-  animation: fadeIn 0.5s ease both;
+  animation: fadeIn 0.6s var(--easing-ease-out) forwards;
 }
 
 .animateUp1 {
-  animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+  animation: fadeInUp 0.6s var(--easing-ease-out) 0.15s both;
 }
 
 .animateUp2 {
-  animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.32s both;
+  animation: fadeInUp 0.6s var(--easing-ease-out) 0.32s both;
 }
 
 .animateUp3 {
-  animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.48s both;
+  animation: fadeInUp 0.6s var(--easing-ease-out) 0.48s both;
 }
 
 .animateUp4 {
-  animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.62s both;
+  animation: fadeInUp 0.6s var(--easing-ease-out) 0.62s both;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -52,8 +52,8 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  /* Vibrant green base */
-  background-color: var(--color-accent);
+  background: linear-gradient(135deg, #1AD744 0%, #15B838 50%, #1AD744 100%);
+  background-attachment: fixed;
 }
 
 .heroContent {
@@ -62,103 +62,107 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-xl);
+  gap: var(--space-2xl);
   padding-top: 100px;
   padding-bottom: var(--space-5xl);
-  max-width: 860px;
+  max-width: 900px;
 }
 
 .heroBadge {
   display: inline-flex;
   align-items: center;
-  padding: 0.375rem 1rem;
-  background-color: rgba(0, 0, 0, 0.08);
-  color: var(--color-navy);
+  padding: 0.5rem 1.25rem;
+  background-color: rgba(0, 51, 102, 0.12);
+  color: var(--color-primary);
   border-radius: var(--radius-full);
   font-family: var(--font-ui);
   font-size: var(--font-size-sm);
-  font-weight: 600;
-  letter-spacing: var(--letter-spacing-caps);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--letter-spacing-wide);
   text-transform: uppercase;
-  border: 1px solid rgba(0, 51, 102, 0.25);
+  border: 1px solid rgba(0, 51, 102, 0.3);
+  backdrop-filter: blur(8px);
 }
 
 .heroTitle {
   font-family: var(--font-family);
-  font-size: clamp(3.5rem, 9vw, 7.5rem);
-  font-weight: 800;
-  letter-spacing: var(--letter-spacing-caps);
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: var(--weight-black);
+  letter-spacing: var(--letter-spacing-tight);
   line-height: 1.0;
-  color: var(--color-navy);
-  text-transform: uppercase;
+  color: var(--color-primary);
+  text-transform: none;
 }
 
 .heroAccent {
-  /* "Good Matter." accent — block underline */
   display: inline;
   position: relative;
-  color: var(--color-navy);
+  color: var(--color-primary);
+  font-weight: var(--weight-black);
 }
 
 .heroAccent::after {
   content: '';
   display: block;
-  height: 6px;
-  background-color: var(--color-navy);
-  border-radius: 3px;
-  margin-top: 4px;
+  height: 8px;
+  background-color: var(--color-primary);
+  border-radius: 4px;
+  margin-top: 6px;
   width: 100%;
 }
 
 .heroSubtitle {
   font-family: var(--font-ui);
-  font-size: clamp(1.1rem, 2vw, 1.375rem);
-  color: rgba(0, 51, 102, 0.82);
-  max-width: 580px;
-  line-height: 1.75;
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  color: rgba(0, 51, 102, 0.85);
+  max-width: 620px;
+  line-height: 1.8;
+  font-weight: var(--weight-regular);
 }
 
 .heroCtas {
   display: flex;
-  gap: var(--space-md);
+  gap: var(--space-lg);
   flex-wrap: wrap;
+  padding-top: var(--space-lg);
 }
 
 .heroStats {
   display: flex;
   align-items: center;
-  gap: var(--space-xl);
-  padding-top: var(--space-xl);
-  border-top: 2px dashed rgba(0, 51, 102, 0.25);
+  gap: var(--space-2xl);
+  padding-top: var(--space-2xl);
+  border-top: 2px solid rgba(0, 51, 102, 0.3);
   flex-wrap: wrap;
 }
 
 .stat {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 }
 
 .statValue {
   font-family: var(--font-mono);
-  font-size: var(--font-size-2xl);
-  font-weight: 500;
-  color: var(--color-navy);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: var(--weight-bold);
+  color: var(--color-primary);
   letter-spacing: -0.01em;
 }
 
 .statLabel {
   font-family: var(--font-ui);
   font-size: var(--font-size-xs);
-  color: rgba(0, 51, 102, 0.65);
+  color: rgba(0, 51, 102, 0.75);
   text-transform: uppercase;
-  letter-spacing: var(--letter-spacing-caps);
+  letter-spacing: var(--letter-spacing-wide);
+  font-weight: var(--weight-semibold);
 }
 
 .statDivider {
   width: 1px;
-  height: 40px;
-  background-color: rgba(0, 51, 102, 0.2);
+  height: 48px;
+  background-color: rgba(0, 51, 102, 0.25);
 }
 
 /* Hero background layers */
@@ -169,25 +173,24 @@
   z-index: 0;
 }
 
-/* Faint geometric dot-grid texture (1% opacity) */
+/* Subtle dot texture */
 .heroBackground::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(0,0,0,0.12) 1px, transparent 1px);
-  background-size: 24px 24px;
-  opacity: 0.45;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.06) 1.5px, transparent 1.5px);
+  background-size: 32px 32px;
+  opacity: 0.3;
 }
 
-/* Radial edge fade — darker at corners for depth */
+/* Radial edge fade for depth */
 .heroBackground::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 70% 80% at 50% 50%, transparent 40%, rgba(0, 80, 0, 0.18) 100%);
+  background: radial-gradient(ellipse 70% 80% at 50% 50%, transparent 30%, rgba(0, 51, 102, 0.1) 100%);
 }
 
-/* Legacy orb elements — hidden, replaced by pseudo-elements above */
 .heroGradient,
 .heroOrb1,
 .heroOrb2 {
@@ -195,12 +198,12 @@
 }
 
 /* ============================================================
-   CTA Band — Navy backdrop
+   CTA Band — Navy backdrop with green accent
    ============================================================ */
 
 .ctaBand {
   padding: var(--space-5xl) 0;
-  background: var(--color-navy);
+  background: var(--color-primary);
 }
 
 .ctaBandInner {
@@ -212,26 +215,26 @@
 
 .ctaBandTitle {
   font-family: var(--font-family);
-  font-size: clamp(var(--font-size-xl), 3vw, var(--font-size-2xl));
-  font-weight: 800;
+  font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-4xl));
+  font-weight: var(--weight-black);
   color: var(--color-accent);
   margin-bottom: var(--space-md);
-  letter-spacing: var(--letter-spacing-caps);
-  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-tight);
+  text-transform: none;
 }
 
 .ctaBandSubtitle {
   font-family: var(--font-ui);
-  font-size: var(--font-size-base);
-  color: rgba(255, 255, 255, 0.75);
-  max-width: 480px;
-  line-height: 1.75;
+  font-size: clamp(var(--font-size-base), 1vw, var(--font-size-lg));
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 500px;
+  line-height: 1.8;
 }
 
 .ctaBandActions {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: var(--space-md);
   flex-shrink: 0;
 }
 
@@ -242,7 +245,7 @@
   }
 
   .heroStats {
-    gap: var(--space-md);
+    gap: var(--space-lg);
   }
 
   .statDivider { display: none; }

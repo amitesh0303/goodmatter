@@ -1,27 +1,27 @@
 .hero {
   padding-top: 140px;
   padding-bottom: var(--space-5xl);
-  background: linear-gradient(to bottom, var(--color-surface-alt), var(--color-bg));
+  background: linear-gradient(to bottom, var(--color-surface-secondary), var(--color-bg));
 }
 
 .heroContent {
-  max-width: 720px;
+  max-width: 760px;
 }
 
 .eyebrow {
   display: inline-block;
   font-size: var(--font-size-sm);
-  font-weight: 600;
+  font-weight: var(--weight-semibold);
   color: var(--color-accent);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--letter-spacing-wide);
   margin-bottom: var(--space-lg);
 }
 
 .heroTitle {
-  font-size: clamp(var(--font-size-2xl), 5vw, var(--font-size-3xl));
-  font-weight: 800;
-  color: var(--color-text);
+  font-size: clamp(var(--font-size-3xl), 6vw, var(--font-size-5xl));
+  font-weight: var(--weight-black);
+  color: var(--color-text-primary);
   letter-spacing: var(--letter-spacing-tight);
   margin-bottom: var(--space-xl);
   line-height: 1.1;
@@ -32,10 +32,10 @@
 }
 
 .heroSubtitle {
-  font-size: var(--font-size-lg);
-  color: var(--color-text-muted);
-  line-height: 1.7;
-  max-width: 600px;
+  font-size: clamp(var(--font-size-base), 2vw, var(--font-size-lg));
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  max-width: 640px;
 }
 
 .section {
@@ -43,7 +43,7 @@
 }
 
 .sectionAlt {
-  background-color: var(--color-surface-alt);
+  background-color: var(--color-surface-secondary);
 }
 
 .missionLayout {

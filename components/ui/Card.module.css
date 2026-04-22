@@ -1,36 +1,64 @@
 .card {
   border-radius: var(--radius-lg);
-  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+  transition: transform var(--duration-medium) var(--easing-ease-out),
+              box-shadow var(--duration-medium) var(--easing-ease-out),
+              border-color var(--duration-medium) var(--easing-ease-out);
 }
 
+/* Default variant — Clean white with subtle elevation */
 .default {
   background-color: var(--color-surface);
-  box-shadow: var(--shadow-lg);
-  border: 2px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
 }
 
+.default:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-border);
+}
+
+/* Glass variant — Frosted effect */
 .glass {
   background-color: var(--color-glass);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: var(--shadow-md);
+}
+
+.glass:hover {
   box-shadow: var(--shadow-lg);
 }
 
+/* Outlined variant — Border emphasis */
 .outlined {
   background-color: transparent;
-  border: 2px solid var(--color-navy);
+  border: 2px solid var(--color-primary);
+  box-shadow: none;
 }
 
+.outlined:hover {
+  background-color: rgba(0, 51, 102, 0.02);
+  border-color: var(--color-primary-light);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Padding helpers */
 .padding-sm { padding: var(--space-lg); }
 .padding-md { padding: var(--space-xl); }
 .padding-lg { padding: var(--space-2xl); }
 
-.hoverable:hover {
-  transform: translateY(-2px);
-  box-shadow: 4px 4px 0 var(--color-navy);
+/* Hover interactivity */
+.hoverable {
+  cursor: pointer;
 }
 
+.hoverable:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Reduce motion support */
 @media (prefers-reduced-motion: reduce) {
   .card {
     transition: none;

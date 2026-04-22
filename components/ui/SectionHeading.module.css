@@ -1,5 +1,6 @@
 .wrapper {
-  max-width: 720px;
+  max-width: 800px;
+  margin-bottom: var(--space-3xl);
 }
 
 .left { text-align: left; margin-right: auto; }
@@ -8,22 +9,24 @@
 
 .title {
   font-family: var(--font-family);
-  font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-3xl));
-  font-weight: 800;
-  color: var(--color-text);
-  letter-spacing: var(--letter-spacing-caps);
-  text-transform: uppercase;
-  line-height: 1.1;
-  margin-bottom: var(--space-md);
+  font-size: clamp(var(--font-size-2xl), 5vw, var(--font-size-4xl));
+  font-weight: var(--weight-black);
+  color: var(--color-text-primary);
+  letter-spacing: var(--letter-spacing-tight);
+  text-transform: none;
+  line-height: 1.15;
+  margin-bottom: var(--space-lg);
 }
 
 .accent {
   color: var(--color-accent);
+  font-weight: var(--weight-black);
 }
 
 .subtitle {
   font-family: var(--font-ui);
-  font-size: var(--font-size-lg);
-  color: var(--color-text-muted);
-  line-height: 1.7;
+  font-size: clamp(var(--font-size-base), 2vw, var(--font-size-xl));
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  font-weight: var(--weight-regular);
 }

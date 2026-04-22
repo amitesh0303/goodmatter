@@ -1,35 +1,35 @@
 .hero {
   padding-top: 140px;
   padding-bottom: var(--space-4xl);
-  background: linear-gradient(to bottom, var(--color-surface-alt), var(--color-bg));
+  background: linear-gradient(to bottom, var(--color-surface-secondary), var(--color-bg));
 }
 
 .heroContent {
-  max-width: 600px;
+  max-width: 640px;
 }
 
 .eyebrow {
   display: inline-block;
   font-size: var(--font-size-sm);
-  font-weight: 600;
+  font-weight: var(--weight-semibold);
   color: var(--color-accent);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: var(--space-md);
+  letter-spacing: var(--letter-spacing-wide);
+  margin-bottom: var(--space-lg);
 }
 
 .title {
-  font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-3xl));
-  font-weight: 800;
-  color: var(--color-text);
+  font-size: clamp(var(--font-size-2xl), 5vw, var(--font-size-4xl));
+  font-weight: var(--weight-black);
+  color: var(--color-text-primary);
   letter-spacing: var(--letter-spacing-tight);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
 }
 
 .subtitle {
-  font-size: var(--font-size-lg);
-  color: var(--color-text-muted);
-  line-height: 1.7;
+  font-size: clamp(var(--font-size-base), 2vw, var(--font-size-lg));
+  color: var(--color-text-secondary);
+  line-height: 1.8;
 }
 
 .formSection {

@@ -3,32 +3,44 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-sm);
-  font-family: var(--font-family);
-  font-weight: 700;
+  font-family: var(--font-ui);
+  font-weight: var(--weight-semibold);
   border-radius: var(--radius-lg);
-  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s ease, background-color 0.18s ease;
+  transition: transform var(--duration-fast) var(--easing-motion),
+              box-shadow var(--duration-fast) var(--easing-ease-out),
+              background-color var(--duration-fast) var(--easing-ease-out),
+              color var(--duration-fast) var(--easing-ease-out),
+              border-color var(--duration-fast) var(--easing-ease-out);
   cursor: pointer;
   text-decoration: none;
   white-space: nowrap;
   position: relative;
   overflow: hidden;
   border: 2px solid transparent;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  user-select: none;
+  min-height: 44px;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 .btn:disabled {
-  opacity: 0.5;
+  opacity: 0.6;
   cursor: not-allowed;
 }
 
 /* Micro-bounce on hover */
 .btn:hover:not(:disabled) {
-  transform: translateY(-3px) scale(1.01);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .btn:active:not(:disabled) {
-  transform: translateY(-1px) scale(0.99);
+  transform: translateY(0px);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -41,46 +53,66 @@
   }
 }
 
-/* Variants */
+/* Primary Variant — Navy, full-strength CTA */
 .primary {
-  background-color: var(--color-navy);
-  color: #fff;
-  border-color: var(--color-navy);
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-color: var(--color-primary);
 }
 
 .primary:hover:not(:disabled) {
-  background-color: #004080;
-  border-color: #004080;
-  box-shadow: var(--shadow-lg);
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
 }
 
+.primary:active:not(:disabled) {
+  background-color: var(--color-primary-active);
+}
+
+/* Secondary Variant — Outline, lower emphasis */
 .secondary {
   background-color: transparent;
-  color: var(--color-navy);
-  border-color: var(--color-navy);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 .secondary:hover:not(:disabled) {
   background-color: rgba(0, 51, 102, 0.06);
-  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary-light);
+  color: var(--color-primary-light);
 }
 
+/* Accent Variant — Green, impact-driven */
+.accent {
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+  border-color: var(--color-accent);
+  font-weight: var(--weight-bold);
+}
+
+.accent:hover:not(:disabled) {
+  background-color: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+}
+
+/* Ghost Variant — Minimal, inline */
 .ghost {
   background-color: transparent;
-  color: var(--color-blue);
+  color: var(--color-primary);
   border-color: transparent;
 }
 
 .ghost:hover:not(:disabled) {
-  background-color: rgba(0, 123, 255, 0.08);
+  background-color: rgba(0, 51, 102, 0.04);
 }
 
+/* Glass Variant — Frosted effect */
 .glass {
   background-color: var(--color-glass);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  color: var(--color-navy);
-  border-color: rgba(255,255,255,0.4);
+  color: var(--color-primary);
+  border-color: rgba(255, 255, 255, 0.4);
   box-shadow: var(--shadow-sm);
 }
 
@@ -89,47 +121,48 @@
   box-shadow: var(--shadow-md);
 }
 
-/* Light variant — for use on dark/navy backgrounds */
+/* Light Variant — For dark backgrounds */
 .light {
-  background-color: var(--color-accent);
-  color: var(--color-navy);
-  border-color: var(--color-accent);
-  font-weight: 800;
+  background-color: #ffffff;
+  color: var(--color-primary);
+  border-color: #ffffff;
+  font-weight: var(--weight-bold);
 }
 
 .light:hover:not(:disabled) {
-  background-color: var(--color-accent-hover);
-  border-color: var(--color-accent-hover);
-  box-shadow: var(--shadow-lg);
+  background-color: var(--color-surface-secondary);
+  border-color: var(--color-surface-secondary);
 }
 
-/* Outline-light variant — transparent with white border for dark backgrounds */
+/* Outline Light Variant — For dark backgrounds */
 .outlineLight {
   background-color: transparent;
-  color: rgba(255, 255, 255, 0.85);
-  border-color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .outlineLight:hover:not(:disabled) {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.7);
 }
 
 /* Sizes */
 .sm {
-  padding: 0.375rem var(--space-md);
+  padding: 0.375rem 1rem;
   font-size: var(--font-size-sm);
+  min-height: 36px;
 }
 
 .md {
-  padding: 0.625rem var(--space-xl);
+  padding: 0.625rem 1.5rem;
   font-size: var(--font-size-base);
 }
 
 .lg {
-  padding: 0.875rem var(--space-2xl);
+  padding: 0.875rem 2rem;
   font-size: var(--font-size-lg);
+  min-height: 48px;
 }
 
 .fullWidth {
@@ -148,7 +181,7 @@
 }
 
 .loadingText {
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 @keyframes spin {

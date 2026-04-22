@@ -1,60 +1,68 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
+  gap: var(--space-sm);
 }
 
 .label {
   font-size: var(--font-size-sm);
-  font-weight: 500;
-  color: var(--color-text);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-primary);
+  text-transform: none;
 }
 
 .required {
-  color: var(--color-accent);
+  color: var(--color-error);
 }
 
 .input {
   width: 100%;
-  padding: 0.75rem var(--space-md);
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-sm);
+  padding: var(--space-md) 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
   font-size: var(--font-size-base);
-  color: var(--color-text);
+  color: var(--color-text-primary);
   background-color: var(--color-surface);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color var(--duration-fast) var(--easing-ease-out),
+              box-shadow var(--duration-fast) var(--easing-ease-out);
   outline: none;
+  font-family: var(--font-ui);
+}
+
+.input:hover {
+  border-color: var(--color-border);
 }
 
 .input:focus {
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(200, 169, 110, 0.12);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-focus);
 }
 
 .input::placeholder {
-  color: var(--color-text-muted);
+  color: var(--color-text-tertiary);
 }
 
 .hasError {
-  border-color: #e53e3e;
+  border-color: var(--color-error);
 }
 
 .hasError:focus {
-  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.12);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
 }
 
 .textarea {
   resize: vertical;
-  min-height: 100px;
+  min-height: 120px;
+  font-family: var(--font-ui);
 }
 
 .select {
   cursor: pointer;
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B6B6B' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666666' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right var(--space-md) center;
-  padding-right: 2.5rem;
+  background-position: right 1rem center;
+  padding-right: 2.75rem;
 }
 
 .error {

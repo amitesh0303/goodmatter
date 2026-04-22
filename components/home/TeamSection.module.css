@@ -6,7 +6,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-lg);
+  gap: var(--space-2xl);
   margin-top: var(--space-3xl);
   max-width: 900px;
   margin-left: auto;
@@ -16,46 +16,49 @@
 .card {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: var(--space-lg);
 }
 
 .avatar {
-  width: 56px;
-  height: 56px;
-  border-radius: var(--radius-md);
-  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-blue) 100%);
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, #1AD744 0%, #003366 100%);
   color: #fff;
   font-family: var(--font-mono);
   font-size: var(--font-size-base);
-  font-weight: 500;
+  font-weight: var(--weight-semibold);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  border: 2px solid var(--color-border);
 }
 
 .name {
   font-family: var(--font-family);
-  font-size: var(--font-size-base);
-  font-weight: 700;
-  color: var(--color-text);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-size: clamp(var(--font-size-base), 2vw, var(--font-size-lg));
+  font-weight: var(--weight-bold);
+  color: var(--color-text-primary);
+  text-transform: none;
+  letter-spacing: var(--letter-spacing-tight);
 }
 
 .role {
-  font-family: var(--font-mono);
+  font-family: var(--font-ui);
   font-size: var(--font-size-sm);
-  color: var(--color-blue);
-  font-weight: 500;
+  color: var(--color-accent);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
   margin-top: 2px;
 }
 
 .bio {
   font-family: var(--font-ui);
   font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
-  line-height: 1.75;
+  color: var(--color-text-secondary);
+  line-height: 1.85;
   flex: 1;
 }
 
@@ -63,23 +66,29 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 14px;
+  padding: 8px 16px;
   border-radius: var(--radius-full);
   background-color: #0A66C2;
   color: #fff;
   font-family: var(--font-ui);
   font-size: var(--font-size-xs);
-  font-weight: 600;
+  font-weight: var(--weight-semibold);
   text-decoration: none;
-  transition: background-color 0.2s ease, transform 0.15s ease;
+  transition: background-color var(--duration-fast) var(--easing-ease-out),
+              transform var(--duration-fast) var(--easing-motion);
   width: fit-content;
 }
 
 .linkedinBtn:hover {
   background-color: #004182;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
-@media (max-width: 640px) {
+.linkedinBtn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
   .grid { grid-template-columns: 1fr; }
 }
